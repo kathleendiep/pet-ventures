@@ -8,38 +8,44 @@ my app PetDash, social media app that will connect pet lovers through setting up
 
 ## MVP:
 #### Tech Stack: 
+Application to be built on: 
 - **React - frontend** 
 - **Django - backend** 
+- Converting from JS to typescript 
 
 #### Functionality:
-- User Login 
-- User Profile
 - Search based on type of dog 
 - Adopt-a-pet API
+- User Login 
+- User Profile
+
 
 #### Models 
-
-##### User Model 
-
-##### Post 
-
-
-
+##### Post
+class Post(models.Model):
+    Name = models.CharField(max_length=32)
+    Category = models.CharField(max_length=32)
+    Breed = models.CharField(max_length=32)
+    description = models.CharField(max_length=200)
+    city = models.CharField(max_length=50)
+     state = models.CharField(max_length=50)
+    img = models.CharField(max_length=2000)
+    
+    optional:
+    user_id 
+#### User
 
 ## SCHEDULE
 
 
 # FUTURE FEATURES
-
-- find snacks 
-- SORT BY CATEGORY (CHIPS, CRACKERS, BAKED GOODS, ETC)
-- Rate and reviews 
+- comments/review
+- sort by location
+- yelp api "dog-friendly"
 - Blog/Question/answer forum
-- Be able to sell it
-- BASED ON LOCATION
-- Add as part of TO DO LIST
-- Social Media API 
-- GROUPS
+- Be able to offer walking service
+- Social Media API insta
+
 
 
 
