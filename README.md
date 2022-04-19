@@ -22,6 +22,7 @@ Application to be built on:
 
 #### Models 
 ##### Post
+```
 class Post(models.Model):
     Name = models.CharField(max_length=32)
     Category = models.CharField(max_length=32)
@@ -30,7 +31,7 @@ class Post(models.Model):
     city = models.CharField(max_length=50)
      state = models.CharField(max_length=50)
     img = models.CharField(max_length=2000)
-    
+```
     optional:
     user_id 
 #### User
