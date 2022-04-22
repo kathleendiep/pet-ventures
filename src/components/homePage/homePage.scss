@@ -1,0 +1,148 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:300,400,700);
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+section{
+    position: relative;
+    padding: 6em;
+    background-image: linear-gradient(60deg, #64b3f4 0%, #c2e59c 100%);
+    color: black;
+    text-align: center;
+    margin-bottom: 100px;
+  }
+  @media(min-width: 500px){
+    section{
+      position: relative;
+      padding: 10em;
+      background-image: linear-gradient(60deg, #64b3f4 0%, #c2e59c 100%);  
+      color: black;
+      text-align: center;
+      margin-bottom: 100px;
+    }
+  }
+
+  section h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 2.8em;
+    font-weight: 400;
+    font-family: 'Bangers', cursive;
+    background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+  }
+  /* Common style for pseudo-elements */
+  section::before,
+  section::after {
+    position: absolute;
+    content: "";
+    pointer-events: none;
+  }
+
+  .button {
+    width: 20vw;
+    color: white;
+    font-size: 15px;
+    border: none;
+    border-radius: 5px;
+    background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+    cursor: pointer;
+    padding: 13px 20px;
+}
+
+.text-link a{
+  color: inherit;
+  text-decoration: inherit;
+}
+.button:hover{
+  background-color: white;
+  color: purple; 
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+/* ---- put this in react file ---- */
+/*<button className="button"><Link to="/about" className='text-link'>About</Link></button>
+ */
+/* FOR THE LINETHROUGH */
+span, a, a:hover {
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+  }
+  .section-head {
+  margin-bottom: 60px;
+  }
+  .section-head h4 {
+  position: relative;
+  padding:0;
+  color:#f91942;
+  line-height: 1;
+  letter-spacing:0.3px;
+  font-size: 34px;
+  font-weight: 700;  
+  text-align:center;
+  text-transform:none;
+  margin-bottom:30px;
+  }
+  .section-head h4:before {
+  content: '';
+  width: 60px;
+  height: 3px;
+  background: #f91942;
+  position: absolute;
+  left: 0px;
+  bottom: -10px;
+  right:0;  
+  margin:0 auto;
+  }
+  .section-head h4 span {
+  font-weight: 700;
+  padding-bottom: 5px;
+  color:#2f2f2f
+  }
+
+  // for the main banner
+  .banner-main-img > img {
+    display: flex;
+    padding-left: 10vh;
+    margin-left: auto;
+    margin-right: auto;
+
+  }
+  .col-lg-6 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+  @media only screen and (max-width: 767px) {
+  .main-banner-area {
+    .banner-text {
+        text-align: center;
+        h1 {
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+        .banner-btn {
+            .default-btn {
+                margin-right: 5px;
+                margin-left: 5px;
+            }
+        }
+    }
+
+    .container-fluid {
+        max-width: 540px;
+    }
+    &.main-banner-area-one {
+        .banner-text {
+            max-width: unset;
+            margin-left: unset;
+            top: 0;
+        }
+    }
+  }
+}
