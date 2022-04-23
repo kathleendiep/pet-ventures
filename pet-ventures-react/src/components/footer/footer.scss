@@ -1,10 +1,19 @@
 @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css);
+:root {
+  --bg-gradient: linear-gradient(
+    to bottom,
+    hsl(var(--hue), 95%, 99%),
+    hsl(var(--hue), 95%, 84%)
+  );
+}
+
+
 footer {
     display: flex;
     width: 400px;
     margin: auto;
     text-align: center;
-    background-color: #80D0C7;    
+    background: var(--bg-gradient);   
     opacity: 0.80;
     margin-bottom: 0;
     height: 30vh;
@@ -50,7 +59,7 @@ footer {
   /* Style the icons by setting its color and margin-top value to 20px 
   to align it properly */
   .wrapper ul li .fa {
-    color: #D8E2DC;
+    color: grey;
     // margin-top: 20px;
     transition: all 0.5s ease;
   }
@@ -138,7 +147,7 @@ footer {
       text-align: center;
       cursor: pointer;
       border-radius: 50%;
-      border: 5px solid #D8E2DC;
+      border: 5px solid grey;
       float: left;
       transition: all 0.5s ease;
     }
