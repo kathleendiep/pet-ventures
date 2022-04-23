@@ -207,30 +207,26 @@ const Banner = () => {
 
     return (
         <>
-            {/* <canvas class="orb-canvas"></canvas> */}
             <div class="overlay">
-                <div class="overlay__inner">
+<div className="container-fluid">
+<div className="row align-items-center">
+    <div className="col-lg-6">
+        <div className="banner-text">
+        <h2 class="animate__animated animate__bounce animate__delay-.5s">Pet-Ventures</h2>
+        <h1 class="overlay__title">
+            Woof Woof
+                        <span class="text-gradient">pet owners</span>
+        </h1>
+        <button className="button text-link overlay__btn-emoji">🎨</button>
+        </div>
+    </div>
+    <div className="col-lg-6 banner-main-img">
+        {/* Main Image */}
+            <img src="petventures-mainbanner.png" alt="Image" />
+    </div>
+</div>
+</div>
 
-                    <h1 class="overlay__title">
-                        Woof Woof
-                        <span class="text-gradient">      pet owners</span>
-                    </h1>
-
-                    <p class="overlay__description">
-                        find and connect to furiends
-                        {/* <strong>We're gonna talk accessibility, too.</strong> */}
-                    </p>
-
-                    <div class="overlay__btns">
-                        <button class="overlay__btn overlay__btn--transparent">
-                            Tutorial out Feb 2, 2021
-                        </button>
-                        <button class="overlay__btn overlay__btn--colors">
-                            <span>Randomise Colors</span>
-                            <span class="overlay__btn-emoji">🎨</span>
-                        </button>
-                    </div>
-                </div>
             </div>
         </>
     )
@@ -239,4 +235,4 @@ const Banner = () => {
 export default Banner
 
 
-
+    
