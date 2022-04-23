@@ -3,6 +3,7 @@ import { useState } from 'react'
 import NavBar from '../navBar/navBar';
 import Footer from '../footer/footer';
 import MainBanner from './mainBanner'
+import AnimalCard from '../animalcard';
 import './homePage.scss'
 import 'animate.css';
 
@@ -16,6 +17,7 @@ const HomePage = () => {
     <div className="nav-bar">
       <NavBar></NavBar>
       <MainBanner></MainBanner>
+      <AnimalCard/>
       <Footer></Footer>
     </div>
   )

@@ -8,7 +8,7 @@ const MainBanner = () => {
                 <div className="row align-items-center">
                     <div className="col-lg-6">
                         <div className="banner-text">
-                        <h2 class="animate__animated animate__bounce animate__delay-.5s">Snack World</h2>
+                        <h2>Pet-Ventures</h2>
                         <p>Explore the world with different snacks! </p>
                         <button className="button text-link"><Link to="/about">About</Link></button>
                         </div>

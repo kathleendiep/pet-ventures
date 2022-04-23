@@ -18,6 +18,9 @@ class Loader extends Component {
                         <div className="rect4"></div>
                         <div className="rect5"></div>
                     </div>
+                    <div>
+                    <h1 className="name-spin">pet-venture</h1>
+                    </div>
                 </div>
             </div>
         </div>
