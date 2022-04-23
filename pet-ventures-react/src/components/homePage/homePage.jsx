@@ -2,8 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import NavBar from '../navBar/navBar';
 import Footer from '../footer/footer';
-import MainBanner from './mainBanner'
-import AnimalCard from '../animalcard';
+import Banner from '../banner';
 import './homePage.scss'
 import 'animate.css';
 
@@ -16,8 +15,7 @@ const HomePage = () => {
   return (
     <div className="nav-bar">
       <NavBar></NavBar>
-      <MainBanner></MainBanner>
-      <AnimalCard/>
+      <Banner></Banner>
       <Footer></Footer>
     </div>
   )
