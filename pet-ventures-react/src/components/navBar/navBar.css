@@ -72,20 +72,29 @@ a {
 }
 .header-links > ul > li {
   font-family: 'Lato', sans-serif;
+  text-transform: uppercase;
+  background-image: linear-gradient(
+    45deg,
+    var(--base) 25%,
+    var(--complimentary2)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
 }
 .header-links li {
-  color: white;
   display: inline;
   float: right;
   padding: 15px;
   font-size: 20px;
   font-family: 'Lato', sans-serif;
 }
-
+/* hover */
 .header-links a {
   color: white;
   /* background-color: #80D0C7;  ; */
-  background-image: linear-gradient(to right, #80D0C7, #097b6e);
+  /* background-image: linear-gradient(to right, #80D0C7, #097b6e); */
   background-repeat: no-repeat;
   background-size: 0% 100%;
   background-position-x: right;

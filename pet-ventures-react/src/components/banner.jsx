@@ -207,20 +207,18 @@ const Banner = () => {
 
     return (
         <>
-            <canvas class="orb-canvas"></canvas>
+            {/* <canvas class="orb-canvas"></canvas> */}
             <div class="overlay">
                 <div class="overlay__inner">
 
                     <h1 class="overlay__title">
-                        Hey, would you like to learn how to create a
-                        <span class="text-gradient">generative</span> UI just like this?
+                        Woof Woof
+                        <span class="text-gradient">      pet owners</span>
                     </h1>
 
                     <p class="overlay__description">
-                        In this tutorial we will be creating a generative “orb” animation using
-                        pixi.js, picking some lovely random colors, and pulling it all together in
-                        a nice frosty UI.
-                        <strong>We're gonna talk accessibility, too.</strong>
+                        find and connect to furiends
+                        {/* <strong>We're gonna talk accessibility, too.</strong> */}
                     </p>
 
                     <div class="overlay__btns">
