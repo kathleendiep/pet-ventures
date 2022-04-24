@@ -168,6 +168,9 @@
     .overlay {
       padding: 1.5rem;
     }
+    .container-fluid {
+      max-width: 540px;
+  }
   
     .overlay__btns {
       flex-wrap: wrap;
@@ -183,3 +186,5 @@
       margin-bottom: 1rem;
     }
   }
+
+  

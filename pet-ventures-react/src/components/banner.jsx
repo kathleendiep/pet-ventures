@@ -208,27 +208,25 @@ const Banner = () => {
     return (
         <>
             <canvas class="orb-canvas"></canvas>
-            <div className="container">
+            <div className="container container-fluid">
                 <div class="overlay">
-                    <div class="overlay__inner">
-
-                        <h1 class="overlay__title">
-                            Woof Woof
-                            <span class="text-gradient">      pet owners</span>
-                        </h1>
-
-                        <p class="overlay__description">
-                            find and connect to furiends
-                            {/* <strong>We're gonna talk accessibility, too.</strong> */}
-                        </p>
-
-                        <div class="overlay__btns">
-                            <button class="overlay__btn overlay__btn--colors">
-                                <span>Randomise Colors</span>
-                                <span class="overlay__btn-emoji">🎨</span>
-                            </button>
+                    <div className="row align-items-center">
+                        <div className="col-lg-6">
+                            <div className="banner-text">
+                                <h1 class="overlay__title">
+                                    Woof Woof
+                                    <span class="text-gradient">      pet owners</span>
+                                </h1>
+                                <p class="overlay__description">
+                                    find and connect to furiends
+                                    {/* <strong>We're gonna talk accessibility, too.</strong> */}
+                                </p>
+                                <button className="button text-link"></button>
+                            </div>
                         </div>
-
+                        <div className="col-lg-6 banner-main-img">
+                        <img src="petventures-mainbanner.png" alt="Image" />
+                        </div>
                     </div>
                 </div>
             </div>
