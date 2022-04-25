@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import NewPet from "./newPet";
+import SinglePet from "./singlePet";
 
 const PetContainer = () => {
     const [pets, setPets] = useState([]);
@@ -9,7 +10,13 @@ const PetContainer = () => {
     // INDEX: GET 
     const getPets = async () => {
         try {
-            const voyagers = await fetch("http://localhost:8000/api/pets/")
+            const voyagers = await fetch("http://localhost:8000/api/pets/", {
+                'method': 'GET',
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": "Token 0981aae18064eab63095444c81acc49776eb93a6"
+                }
+            })
             const parsedVoyagers = await voyagers.json();
             setPets(parsedVoyagers.data)
         } catch (err) {
@@ -37,12 +44,13 @@ const PetContainer = () => {
             setPets([parsedResponse.data, ...pets])
         } else {
             // setNewItemsServerError(parsedResponse.data)
-            // // TO DO: Refactor state from newItemForm to here 
+            console.log(parsedResponse.error)
+
         }
     }
     useEffect(() => {
         getPets();
-    });
+    }, [])
     return (
         <>
             <h1>pets go here</h1>
@@ -53,6 +61,10 @@ const PetContainer = () => {
                 setNewItemsServerError={setNewItemsServerError}
                 />
             </span>
+            {/* {pets.map((pet)=>{
+                return <SinglePet key={pet._id} pet={pet}/>
+            })} */}
+
         </>
     );
 }
