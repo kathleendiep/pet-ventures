@@ -7,22 +7,22 @@ const PetContainer = () => {
     const [pets, setPets] = useState([]);
     const [newItemServerError, setNewItemsServerError] = useState("");
     const [requestError, setRequestError] = useState("")
-    // INDEX: GET 
-    const getPets = async () => {
-        try {
-            const voyagers = await fetch("http://localhost:8000/api/pets/", {
-                'method': 'GET',
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": "Token 0981aae18064eab63095444c81acc49776eb93a6"
-                }
-            })
-            const parsedVoyagers = await voyagers.json();
-            setPets(parsedVoyagers.data)
-        } catch (err) {
-            console.log(err)
-        }
-    }
+    // // INDEX: GET 
+    // const getPets = async () => {
+    //     try {
+    //         const voyagers = await fetch("http://localhost:8000/api/pets/", {
+    //             'method': 'GET',
+    //             headers: {
+    //                 "Content-Type": "application/json",
+    //                 "Authorization": "Token 0981aae18064eab63095444c81acc49776eb93a6"
+    //             }
+    //         })
+    //         const parsedVoyagers = await voyagers.json();
+    //         setPets(parsedVoyagers.data)
+    //     } catch (err) {
+    //         console.log(err)
+    //     }
+    // }
     const createNewPet = async (newPet) => {
         console.log("Let's create this!");
         console.log(newPet)
@@ -49,21 +49,31 @@ const PetContainer = () => {
         }
     }
     useEffect(() => {
-        getPets();
+        fetch('http://localhost:8000/api/pets/', {
+            'method': 'GET',
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Token 0981aae18064eab63095444c81acc49776eb93a6"
+            }
+        })
+        .then(resp=> resp.json())
+        .then(resp=> setPets(resp))
+        .catch(error=> console.log(error))
     }, [])
     return (
         <>
             <h1>pets go here</h1>
             <span className="new-voyager-component">
                 <NewPet
-                createNewPet={createNewPet}
-                newItemServerError={newItemServerError}
-                setNewItemsServerError={setNewItemsServerError}
+                    createNewPet={createNewPet}
+                    newItemServerError={newItemServerError}
+                    setNewItemsServerError={setNewItemsServerError}
                 />
             </span>
-            {/* {pets.map((pet)=>{
-                return <SinglePet key={pet._id} pet={pet}/>
-            })} */}
+
+            {pets.map((pet)=>{
+                return <SinglePet key={pet.id} pet={pet}/>
+            })}
 
         </>
     );
