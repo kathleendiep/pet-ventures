@@ -1,70 +1,87 @@
-# Getting Started with Create React App
+# Pet-Ventures 🦴🐶🐾
+## Description
+my app PetDash, social media app that will connect pet lovers through setting up dog/human profiles, services, and blog posts 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Check it out! 
+[link will go here ](https://example.com)
 
-In the project directory, you can run:
+## MVP:
+- 
+#### Tech Stack: 
+Application to be built on: 
+- **React - frontend** 
+- **Django - backend** 
+- Converting from JS to typescript 
 
-### `npm start`
+#### Functionality:
+- Search based on type of dog 
+- Adopt-a-pet API
+- User Login 
+- User Profile
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+#### Models 
+##### Post
+```
+class Post(models.Model):
+    Name = models.CharField(max_length=32)
+    Category = models.CharField(max_length=32)
+    Breed = models.CharField(max_length=32)
+    description = models.CharField(max_length=200)
+    city = models.CharField(max_length=50)
+     state = models.CharField(max_length=50)
+    img = models.CharField(max_length=2000)
+```
+    optional:
+    user_id 
+#### User
 
-### `npm test`
+## Project Schedule
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+| Day   | Deliverable                          | Status     |
+| ----- | ------------------------------------ | ---------- |
+| Day 1 | Planning and Approval                | Complete |
+| Day 2 | Set up backend files and structure, test and deploy backend | Incomplete |
+| Day 3 | Set up frontend files, connect frontend with backend, begin MVP attainment | Complete |
+| Day 4 | Attain MVP, debug MVP, begin styling | Complete |
+| Day 5 | Finalize CSS Styling and Responsive Design, begin postMVP if MVP attained | Complete |
+| Day 6 | Confirm finalized MVP & Bug Fixes | Complete |
+| Day 7 | Final Touches and deploying frontend | Complete |
+| Day 8 | Presentation | Complete |
 
-### `npm run build`
+#### MVP (all in hrs unless otherwise stated)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+| Task                          | Priority | Estimated Time | Actual Time |
+| ---------------------------------- | :------: | :------------: | :---------: |
+| Installing and Setup for backend   |    H     |      1       |      3     |
+| User login/auth                    |    H     |      4       |      2     |
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+__ 
+| CRUD Routes and testing on Postman |    H     |      5       |      5    |
+| Deploying backend                  |    H     |     2      |           |
+| Creating React App                 |    H     |      1       |      1     |
+| Add Routes                         |    H     |      2       |     2      |
+| Create Components                  |    H     |      5       |     2      |
+| Connect user authentication on front-end                  |    H     |      10       |     10      |
+| Fetch and test data on frontend    |    H     |      5       |      10     |
+| Search by user on front-end    |    H     |      5       |     10      |
+| Responsive Design                  |    H     |      4       |     5      |
+| CSS and Bootstrap                  |    H     |      4       |     4      |
+| Deploy frontend                    |    H     |      1       |     0.5      |
+| Total                              |    N/A     | 49 |           |
 
-### `npm run eject`
+# FUTURE FEATURES
+- comments/review
+- sort by location
+- yelp api "dog-friendly"
+- Blog/Question/answer forum
+- Be able to offer walking service
+- Social Media API insta
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
