@@ -6,10 +6,11 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import HomePage from './components/homePage/homePage';
-import About from './components/about/about';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import HomePage from './components/homePage/homePage'
+import About from './components/about/about'
 import LoaderPage from './components/loader/loaderpage'
+import Login from './components/login/login'
 function App() {
   return (
     <div className="App">
@@ -18,6 +19,7 @@ function App() {
           <Route path="/" element={<LoaderPage />} />
           <Route path="/" element={<Navigate replace to="/" />} />
           <Route path="/home" element={<LoaderPage/>} />
+          <Route path="/login" element={<Login />} />
           {/* <Route path="/viewall" element={<ViewAll />} /> */}
           <Route path="/about" element={<About />} />
         </Routes>
