@@ -13,22 +13,21 @@ const HomePage = () => {
     const lowerCase = e.target.value.toLowerCase();
     setInputText(lowerCase);
   }
-  const LoginUser = async (username, password) => {
-       fetch("http://localhost:8000/auth/", {
-        method: "POST",
-        body: JSON.stringify(username, password),
-        headers: {
-            "Content-Type": "application/json"
-        },
+//   const LoginUser = async (username, password) => {
+//        fetch("http://localhost:8000/auth/", {
+//         method: "POST",
+//         body: JSON.stringify(username, password),
+//         headers: {
+//             "Content-Type": "application/json"
+//         },
         
-    }).then(resp => resp.json())
-}
+//     }).then(resp => resp.json())
+// }
 
   return (
     <div className="nav-bar">
       <NavBar></NavBar>
       <Banner></Banner>
-      <Login LoginUser={LoginUser}/>
       <PetContainer/>
       <Footer></Footer>
     </div>

@@ -1,19 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Redirect } from "react-router-dom";
 import Modal from 'react-bootstrap/Modal'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Post from '../../Post';
-
+import { useCookies } from 'react-cookie';
+import { useNavigate } from 'react-router-dom';
 const Login = (props) => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    const [token, setToken] = useCookies(['mytoken'])
+    let navigate = useNavigate()
+    useEffect(() => {
+        if(token['mytoken']) {
+            navigate('/home')
+        }
+    }, [token])
 
     const loginBtn = () => {
         Post.LoginUser({username, password})
-        .then(resp => console.log(resp))
+        // sets token to the resp.token - cookies 
+        .then(resp => setToken('mytoken',resp.token)) 
         .catch(error => console.log(error))
     }
+
 
     return (
         <>
