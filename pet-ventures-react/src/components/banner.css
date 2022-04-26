@@ -77,7 +77,7 @@
     margin-bottom: 2rem;
   }
   
-  .text-gradient {
+  .text-gradient, .header-links > ul > li > a  {
     background-image: linear-gradient(
       45deg,
       var(--base) 25%,
@@ -88,6 +88,8 @@
     -moz-background-clip: text;
     -moz-text-fill-color: transparent;
   }
+
+
   
   .overlay__description {
     font-size: 1rem;

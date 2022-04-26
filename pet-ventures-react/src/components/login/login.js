@@ -3,6 +3,7 @@ import Modal from 'react-bootstrap/Modal'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Post from '../../Post';
+import NavBar from '../navBar/navBar';
 import { useCookies } from 'react-cookie';
 import { useNavigate } from 'react-router-dom';
 
@@ -22,6 +23,13 @@ const Login = (props) => {
         Post.LoginUser({username, password})
         // sets token to the resp.token - cookies 
         .then(resp => setToken('mytoken',resp.token)) 
+        const userData = {
+                username,
+                password,
+        }
+        .then(
+            localStorage.setItem('mytoken', JSON.stringify(userData))
+        )
         .catch(error => console.log(error))
     }
 
@@ -29,10 +37,18 @@ const Login = (props) => {
         Post.RegisterUser({username, password})
         .then(() =>  loginBtn())
         .catch(error =>console.log(error))
-
     }
+    const logout = () => {
+        localStorage.removeItem('mytoken');
+        setLogin(false)
+    };
     return (
         <>
+        <NavBar 
+        isLogin={isLogin}
+        setLogin={setLogin}
+        logout={logout}
+        />
         <div className = "App">
             <br/>
             <br/>
@@ -59,7 +75,7 @@ const Login = (props) => {
 
             </div>
 
-            {isLogin ?  <button onClick = {loginBtn} className = "btn btn-primary">Login</button>
+            {isLogin ?  <button onClick = {loginBtn}  className = "btn btn-primary">Login</button>
             :  <button onClick = {RegisterBtn} className = "btn btn-primary">Register</button>
         }
 
@@ -74,6 +90,7 @@ const Login = (props) => {
             </div>
 
         </div>
+        
         </>
     );
 }
