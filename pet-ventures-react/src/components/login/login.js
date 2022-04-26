@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { Redirect } from "react-router-dom";
 import Modal from 'react-bootstrap/Modal'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Post from '../../Post';
 import { useCookies } from 'react-cookie';
 import { useNavigate } from 'react-router-dom';
+
 const Login = (props) => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [token, setToken] = useCookies(['mytoken'])
+    const [isLogin, setLogin] = useState(true)
     let navigate = useNavigate()
     useEffect(() => {
         if(token['mytoken']) {
@@ -24,43 +25,55 @@ const Login = (props) => {
         .catch(error => console.log(error))
     }
 
+    const RegisterBtn = () => {
+        Post.RegisterUser({username, password})
+        .then(() =>  loginBtn())
+        .catch(error =>console.log(error))
 
+    }
     return (
         <>
-            <h1>Please login</h1>
-            {/* <Form>
-                <Form.Group className="mb-3" controlId="formBasicText">
-                    <Form.Label for="formBasicText" >Username</Form.Label>
-                    <Form.Control type="username" placeholder="Enter Username" value={username} onChange = {e => setUsername(e.target.value)}/>
-                    <Form.Text className="text-muted">
-                        We'll never share your email with anyone else.
-                    </Form.Text>
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label for="formBasicPassword">Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" value={password} onChange = {e => setPassword(e.target.value)} />
-                </Form.Group>
-                <Button onClick={loginBtn} variant="primary">
-                    Submit
-                </Button>
-            </Form> */}
-            <div className="mb-3">
-                <label htmlFor="username" className="form-label">Username</label>
-                <input type="text" className="form-control" id="username" placeholder="Please Enter Username"
-                    value={username} onChange={e => setUsername(e.target.value)}
-                />
+        <div className = "App">
+            <br/>
+            <br/>
+            {isLogin ? <h1>Please Login </h1> : <h1>Please Register </h1>}
+            
+
+            <br/>
+            <br/>
+
+            <div className = "mb-3">
+            <label htmlFor = "username" className = "form-label">Username</label>
+            <input type = "text" className = "form-control" id="username" placeholder = "Please Enter Username"
+            value = {username} onChange = {e => setUsername(e.target.value)}
+            />
 
             </div>
 
-            <div className="mb-3">
-                <label htmlFor="password" className="form-label">Password</label>
-                <input type="password" className="form-control" id="password" placeholder="Please Enter Password"
-                    value={password} onChange={e => setPassword(e.target.value)}
-
-                />
+            <div className = "mb-3">
+            <label htmlFor = "password" className = "form-label">Password</label>
+            <input type = "password" className = "form-control" id="password" placeholder = "Please Enter Password"
+            value = {password} onChange = {e => setPassword(e.target.value)}
+            
+            />
 
             </div>
-            <button onClick = {loginBtn} className = "btn btn-primary">Login</button>
+
+            {isLogin ?  <button onClick = {loginBtn} className = "btn btn-primary">Login</button>
+            :  <button onClick = {RegisterBtn} className = "btn btn-primary">Register</button>
+        }
+
+           
+            <div className = "mb-3">
+            <br/>
+            {isLogin ? <h5>If You Don't Have Account, Please <button className = "btn btn-primary" onClick = {() => setLogin(false)} >Register</button>Here</h5>
+            
+             :  <h5>If You Have Account, Please <button className = "btn btn-primary" onClick = {() => setLogin(true)} >Login</button>Here</h5>
+            }
+
+            </div>
+
+        </div>
         </>
     );
 }
