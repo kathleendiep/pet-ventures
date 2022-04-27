@@ -26,7 +26,7 @@ const PetContainer = () => {
     const createNewPet = async (newPet) => {
         console.log("Let's create this!");
         // const apiResponse = await fetch("http://localhost:3001/voyagers/",{
-        const apiResponse = await fetch("http://localhost:8000/api/pets/", {
+        const apiResponse = await fetch("https://pet-ventures-api.herokuapp.com/api/pets/", {
             method: "POST",
             // stringify the object newVoyager
             body: JSON.stringify(newPet),
@@ -58,11 +58,11 @@ const PetContainer = () => {
     // }
 
     useEffect(() => {
-        fetch('http://localhost:8000/api/pets/', {
+        fetch('https://pet-ventures-api.herokuapp.com/api/pets/', {
             'method': 'GET',
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": "Token 0981aae18064eab63095444c81acc49776eb93a6"
+                // "Authorization": "Token 0981aae18064eab63095444c81acc49776eb93a6"
             }
         })
         .then(resp=> resp.json())
@@ -72,18 +72,15 @@ const PetContainer = () => {
     return (
         <>
             <h1>pets go here</h1>
-            <span className="new-voyager-component">
+            <span>
                 <NewPet
                     createNewPet={createNewPet}
-                    newItemServerError={newItemServerError}
-                    setNewItemsServerError={setNewItemsServerError}
                 />
             </span>
 
             {pets.map((pet)=>{
                 return <SinglePet key={pet.id} pet={pet}/>
             })}
-
         </>
     );
 }

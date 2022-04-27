@@ -15,7 +15,7 @@ const NavBar = (props) => {
     console.log(props.token)
     setLoggedOut(true)
     console.log(loggedOut)
-    navigate('/about')
+    navigate('/home')
   }
 
   return (

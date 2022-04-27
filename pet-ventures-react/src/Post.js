@@ -1,7 +1,7 @@
 export default class Post {
     static LoginUser(body) {
 
-        return fetch('http://localhost:8000/auth/', {
+        return fetch('https://pet-ventures-api.herokuapp.com/auth/', {
             'method': 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -14,7 +14,7 @@ export default class Post {
     }
     static RegisterUser(body) {
 
-        return fetch('http://localhost:8000/api/users/', {
+        return fetch('https://pet-ventures-api.herokuapp.com/api/users/', {
           'method':'POST',
           headers: {
               'Content-Type':'application/json',

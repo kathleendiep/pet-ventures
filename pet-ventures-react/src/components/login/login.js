@@ -22,11 +22,11 @@ const Login = (props) => {
     //     }
     // }, [token])
   
-  
     const loginBtn = () => {
         Post.LoginUser({username, password})
         // sets token to the resp.token - cookies 
         .then(resp => props.setToken('mytoken',resp.token))
+        console.log(props.token)
         // .then(resp => console.log(resp))
         // const userData = {
         //         username,
@@ -35,9 +35,8 @@ const Login = (props) => {
         // .then(
         //     localStorage.setItem('mytoken', JSON.stringify(token))
         // )
-        setLoggedIn(true)
-        .then(navigate('/home'))
-        console.log(loggedIn)
+        // setLoggedIn(true)
+        (navigate('/home'))
         .catch(error => console.log(error))
     }
 
