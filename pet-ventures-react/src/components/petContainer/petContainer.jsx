@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import NewPet from "./newPet";
 import SinglePet from "./singlePet";
-
+import { Navigate } from 'react-router-dom'
 const PetContainer = () => {
     const [pets, setPets] = useState([]);
     const [newItemServerError, setNewItemsServerError] = useState("");
@@ -25,7 +25,6 @@ const PetContainer = () => {
     // }
     const createNewPet = async (newPet) => {
         console.log("Let's create this!");
-        console.log(newPet)
         // const apiResponse = await fetch("http://localhost:3001/voyagers/",{
         const apiResponse = await fetch("http://localhost:8000/api/pets/", {
             method: "POST",
@@ -42,10 +41,10 @@ const PetContainer = () => {
         // if it is successful, then add to items
         if (parsedResponse.success) {
             setPets([parsedResponse.data, ...pets])
+   
         } else {
             // setNewItemsServerError(parsedResponse.data)
             console.log(parsedResponse.error)
-
         }
     }
     // static LoginUser(body) { 

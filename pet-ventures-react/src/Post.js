@@ -20,7 +20,7 @@ export default class Post {
               'Content-Type':'application/json',
               
             }, 
-            body:JSON.stringify(body)
+            body: JSON.stringify(body)
   
         }).then(resp => resp.json())
   

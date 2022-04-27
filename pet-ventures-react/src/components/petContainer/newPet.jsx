@@ -2,13 +2,17 @@ import React, { useState } from 'react';
 import Modal from 'react-bootstrap/Modal'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import { useNavigate } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 
 const NewPet = (props) => {
+    let navigate = useNavigate()
     const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
+    const handleClose = () => {
+        setShow(false);
+    }
     const handleShow = () => setShow(true);
     const [isValidState, setIsValidState] = useState({valid: true, message: ""})
-
     // FORM
     const [showing, setShowing] = useState(false)
     // function that setShowing function as TRUE! = !true when clicked on 
@@ -16,7 +20,6 @@ const NewPet = (props) => {
         // 2. set variable to the opposite
         setShowing(!showing)
     }
-
     const [newPet, setNewPet] = useState({
         name: "",
         category: "",
@@ -24,7 +27,6 @@ const NewPet = (props) => {
         info: "",
         city: "",
         state: "",
-        image: ""
     })
 
     // ------------- FUNCTIONS ---------------
@@ -61,16 +63,14 @@ const NewPet = (props) => {
                 info: "",
                 city: "",
                 state: "",
-                image: ""
             })
             // set the valid state to true to show message
             setIsValidState({
                 valid: true,
                 message: ""
             })
-            // set showing to false to end it 
-            setShowing(false)
-            // return < Redirect to="/" />;
+            navigate('/home');
+
         }
     }
     return (
@@ -116,11 +116,11 @@ const NewPet = (props) => {
                         </Form.Group>
                             <Form.Label>State:</Form.Label>
                             <Form.Control onChange={handleInputChange} type="text" name="state" value={newPet.state} />
-                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                        {/* <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Label>Image Link:</Form.Label>
                             <Form.Control onChange={handleInputChange} type="text" name="image" value={newPet.image} />
-                        </Form.Group>
-                        <Button type="submit" onSubmit={submitNewPet}>
+                        </Form.Group> */}
+                        <Button type="submit" onClick={handleClose}>
                             Add
                         </Button>
                     </Form>

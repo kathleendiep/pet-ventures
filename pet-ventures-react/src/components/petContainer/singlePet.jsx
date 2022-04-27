@@ -4,6 +4,7 @@ const SinglePet = (props) => {
         <>
        <h1>{props.pet.name}</h1> 
        <p>{props.pet.category}</p> 
+       <p>{props.pet.username}</p> 
        </>
      );
 }

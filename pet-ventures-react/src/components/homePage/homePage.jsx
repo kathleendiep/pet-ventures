@@ -1,7 +1,5 @@
 import React from 'react'
 import { useState } from 'react'
-import NavBar from '../navBar/navBar';
-import Footer from '../footer/footer';
 import Banner from '../banner';
 import './homePage.scss'
 import 'animate.css';
@@ -26,10 +24,8 @@ const HomePage = () => {
 
   return (
     <div className="nav-bar">
-      <NavBar></NavBar>
       <Banner></Banner>
       <PetContainer/>
-      <Footer></Footer>
     </div>
   )
 }

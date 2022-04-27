@@ -10,26 +10,34 @@ import { useNavigate } from 'react-router-dom';
 const Login = (props) => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
-    const [token, setToken] = useCookies(['mytoken'])
+    // if true show: login page or if false show: register
     const [isLogin, setLogin] = useState(true)
-    let navigate = useNavigate()
-    useEffect(() => {
-        if(token['mytoken']) {
-            navigate('/home')
-        }
-    }, [token])
+    // to see if you are logged in 
+    const [loggedIn, setLoggedIn] = useState(false)
 
+    let navigate = useNavigate()
+    // useEffect(() => {
+    //     if(token['mytoken']) {
+    //         navigate('/home')
+    //     }
+    // }, [token])
+  
+  
     const loginBtn = () => {
         Post.LoginUser({username, password})
         // sets token to the resp.token - cookies 
-        .then(resp => setToken('mytoken',resp.token)) 
-        const userData = {
-                username,
-                password,
-        }
-        .then(
-            localStorage.setItem('mytoken', JSON.stringify(userData))
-        )
+        .then(resp => props.setToken('mytoken',resp.token))
+        // .then(resp => console.log(resp))
+        // const userData = {
+        //         username,
+        //         password,
+        // }
+        // .then(
+        //     localStorage.setItem('mytoken', JSON.stringify(token))
+        // )
+        setLoggedIn(true)
+        .then(navigate('/home'))
+        console.log(loggedIn)
         .catch(error => console.log(error))
     }
 
@@ -38,23 +46,13 @@ const Login = (props) => {
         .then(() =>  loginBtn())
         .catch(error =>console.log(error))
     }
-    const logout = () => {
-        localStorage.removeItem('mytoken');
-        setLogin(false)
-    };
+
     return (
         <>
-        <NavBar 
-        isLogin={isLogin}
-        setLogin={setLogin}
-        logout={logout}
-        />
         <div className = "App">
             <br/>
             <br/>
             {isLogin ? <h1>Please Login </h1> : <h1>Please Register </h1>}
-            
-
             <br/>
             <br/>
 
