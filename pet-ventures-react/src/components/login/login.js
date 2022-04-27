@@ -13,7 +13,7 @@ const Login = (props) => {
     // if true show: login page or if false show: register
     const [isLogin, setLogin] = useState(true)
     // to see if you are logged in 
-    const [loggedIn, setLoggedIn] = useState(false)
+
 
     let navigate = useNavigate()
     // useEffect(() => {
@@ -27,16 +27,11 @@ const Login = (props) => {
         // sets token to the resp.token - cookies 
         .then(resp => props.setToken('mytoken',resp.token))
         console.log(props.token)
-        // .then(resp => console.log(resp))
-        // const userData = {
-        //         username,
-        //         password,
-        // }
-        // .then(
-        //     localStorage.setItem('mytoken', JSON.stringify(token))
-        // )
-        // setLoggedIn(true)
+        props.setLoggedIn(true)
+  
         (navigate('/home'))
+        .then( props.setLoggedIn(true))
+        console.log(props.loggedIn)
         .catch(error => console.log(error))
     }
 

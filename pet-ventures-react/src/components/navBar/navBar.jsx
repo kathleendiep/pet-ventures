@@ -6,15 +6,17 @@ import { useNavigate } from 'react-router-dom';
 
 
 const NavBar = (props) => {
-  const [loggedOut, setLoggedOut] = useState(false)
+
   let navigate = useNavigate()
   const handleLogOut = (e) => {
     e.preventDefault()
     console.log("hello")
     props.setToken('mytoken', null)
     console.log(props.token)
-    setLoggedOut(true)
-    console.log(loggedOut)
+    props.setLoggedOut(true)
+    props.setLoggedIn(false)
+    console.log(props.loggedOut)
+    // make a modal for signout 
     navigate('/home')
   }
 
@@ -30,8 +32,11 @@ const NavBar = (props) => {
             <li data-menuanchor="fourthPage"><Link to="/"> Home</Link></li>
             <li data-menuanchor="thirdPage"><Link to="/about">About</Link></li>
             <li data-menuanchor="secondPage"><Link to="/viewall">Snacks</Link></li>
-            <li><button onClick={handleLogOut}>logout</button> </li>
-            <li><button><Link to="/login">Login</Link></button></li>
+            {props.loggedIn ? 
+             <li><button onClick={handleLogOut}>logout</button> </li>
+              :
+               <><li><button><Link to="/login">Register</Link></button></li> <li> <button><Link to="/login">Login</Link></button></li></>}
+
           </ul>
         </div>
       </div>
