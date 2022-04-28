@@ -17,6 +17,7 @@ import { CookiesProvider } from 'react-cookie';
 import { useCookies } from 'react-cookie';
 import NavBar from './components/navBar/navBar';
 import Footer from './components/footer/footer';
+import PetContainer from './components/petContainer/petContainer';
 
 function App() {
   const [token, setToken] = useCookies(['mytoken'])

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef} from 'react';
 import Modal from 'react-bootstrap/Modal'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
@@ -31,6 +31,15 @@ const NewPet = (props) => {
         img:"",
     })
 
+    const fileSelect = useRef(null);
+    const [image, setImage] = useState();
+    const [progress, setProgress] = useState(0);
+  
+    async function handleImageUpload() {
+      if (fileSelect) {
+        fileSelect.current.click();
+      }
+    }
     // ------------- FUNCTIONS ---------------
     const handleInputChange = (e) => {
         // recall function
@@ -41,15 +50,68 @@ const NewPet = (props) => {
             [e.target.name]: e.target.value
         })
     }
-    const handleImageChange = (e) => {
-      setNewPet({
-          ...newPet,
-          img: e.target.files[0],
-      })
-      console.log(newPet);
+    function handleImageChange(files) {
+   
+      uploadFile(files[0]);
+      const imagefield = files[0]
+      console.log(imagefield)
     }
-      let url = 'https://pet-ventures-api.herokuapp.com/api/pets'
-      const unsigned = 'cloudinary_unsigned';
+  //   // when you are putting in image field, set the new image to img  
+  //   function handleImageChange(files){
+  //       setNewPet({
+  //           ...newPet,
+  //         //   this will equal to e.target.files 
+  //           img: files
+  //       })
+  //       console.log(newPet);
+  //     //   we are calling in upload file function here 
+  //     console.log("this is the e file", files)
+  //     console.log("this is img", newPet.img )
+
+  //     // e.target.files = files > and do the upload function to send to the server 
+  //     uploadFile(files)
+  
+  // }
+
+    function uploadFile(file) {
+        const url = `https://api.cloudinary.com/v1_1/katdiep/image/upload`;
+        const unsigned = 'cloudinary_unsigned';
+        const xhr = new XMLHttpRequest();
+        const fd = new FormData();
+        xhr.open("POST", url, true);
+        xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+        // Update progress (can be used to show progress indicator)
+        xhr.upload.addEventListener("progress", (e) => {
+          setProgress(Math.round((e.loaded * 100.0) / e.total));
+          console.log(Math.round((e.loaded * 100.0) / e.total));
+        });
+    
+        xhr.onreadystatechange = (e) => {
+          if (xhr.readyState == 4 && xhr.status == 200) {
+            const response = JSON.parse(xhr.responseText);
+            // setImage(response.secure_url);
+          
+            console.log(response.secure_url.toString());
+
+            setNewPet({
+                ...newPet,
+              //   this will equal to e.target.files 
+                img: response.secure_url.toString()
+            })
+         console.log("this is img", newPet.img )
+          }
+        };
+    
+        fd.append(
+          "upload_preset",
+          unsigned
+        );
+        fd.append("tags", "browser_upload");
+        fd.append("file", file);
+        xhr.send(fd);
+      }
+
+
 
     const submitNewPet = async (e) => {
         e.preventDefault()
@@ -65,17 +127,7 @@ const NewPet = (props) => {
 
         // if it is a validsubmission we can create and set new item 
         if (validSubmission) {
-          // if(newPet.img){
-            const fd = new FormData()
-            fd.append('file', newPet.img)
-            fd.append( "upload_preset", unsigned
-              //   process.env.NEXT_PUBLIC_CLOUDINARY_UNSIGNED_UPLOAD_PRESET
-            );
-            console.log(newPet.img)
-            const imageUpload = await axios.post('https://api.cloudinary.com/v1_1/katdiep/image/upload', fd)
-            console.log(imageUpload.fd.url)
-            newPet.img = await imageUpload.fd.url
-            // from parent function
+      
             props.createNewPet(newPet)
 
             setNewPet({
@@ -144,7 +196,15 @@ const NewPet = (props) => {
                             <Form.Label>Image Link:</Form.Label>
                             <Form.Control onChange={handleInputChange} type="text" name="image" value={newPet.image} />
                         </Form.Group> */}
-                        <input type="file" onChange={handleImageChange} name="img" value={newPet.img} ></input>
+                        {/* <input type="file" onChange={(e) => handleImageChange(e.target.files)} name="img" value={newPet.img} ></input> */}
+                        <input
+          ref={fileSelect}
+          type="file"
+          name="img" value={newPet.img}
+          accept="image/*"
+          style={{ display: "block" }}
+          onChange={(e) => handleImageChange(e.target.files)}
+        />
                         <Button type="submit" onClick={handleClose}>
                             Add
                         </Button>

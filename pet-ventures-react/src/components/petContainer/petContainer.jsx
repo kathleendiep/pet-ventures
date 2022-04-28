@@ -5,32 +5,12 @@ import SinglePet from "./singlePet";
 import { Navigate } from 'react-router-dom'
 const PetContainer = () => {
     const [pets, setPets] = useState([]);
-    // const [newItemServerError, setNewItemsServerError] = useState("");
-    // const [requestError, setRequestError] = useState("")
-    // // INDEX: GET 
-    // const getPets = async () => {
-    //     try {
-    //         const voyagers = await fetch("http://localhost:8000/api/pets/", {
-    //             'method': 'GET',
-    //             headers: {
-    //                 "Content-Type": "application/json",
-    //                 "Authorization": "Token 0981aae18064eab63095444c81acc49776eb93a6"
-    //             }
-    //         })
-    //         const parsedVoyagers = await voyagers.json();
-    //         setPets(parsedVoyagers.data)
-    //     } catch (err) {
-    //         console.log(err)
-    //     }
-    // }
+    const [requestError, setRequestError] = useState("")
     const createNewPet = async (newPet) => {
         console.log("Let's create this!");
-        // const apiResponse = await fetch("http://localhost:3001/voyagers/",{
-        // console.log(newPet, image, "this is a new pet")
         // newPet.img = image
         const apiResponse = await fetch("https://pet-ventures-api.herokuapp.com/api/pets/", {
             method: "POST",
-            // stringify the object newVoyager
             body: JSON.stringify(newPet),
             // Boilerplate: its coming from json
             headers: {
@@ -49,16 +29,20 @@ const PetContainer = () => {
             console.log(parsedResponse.error)
         }
     }
-    // static LoginUser(body) { 
-    //     return fetch("http://localhost:8000/auth/", {
-    //                 method: "POST",
-    //             headers: {
-    //                     "Content-Type": "application/json"
-    //             },
-    //             body: JSON.stringify(body)
-    //         }).then(resp => resp.json())
-    // }
 
+        const deletePet = async (idToDelete) => {
+            const deleteResponse = await fetch(`https://pet-ventures-api.herokuapp.com/api/pets/${idToDelete}`, {
+                method: "DELETE"
+            })
+            // did not need to do the parsedResponse parsedResponse = await apiResponse.json()
+            if (deleteResponse.status == 204) {
+            console.log(deleteResponse.status)
+            const newPets = pets.filter(pet=> pet.id !== idToDelete)
+            setPets(newPets)
+            }
+        }
+    
+        
     useEffect(() => {
         fetch('https://pet-ventures-api.herokuapp.com/api/pets/', {
             'method': 'GET',
@@ -81,7 +65,7 @@ const PetContainer = () => {
             </span>
 
             {pets.map((pet)=>{
-                return <SinglePet key={pet.id} pet={pet}/>
+                return <SinglePet key={pet.id} pet={pet} deletePet={deletePet}/>
             })}
         </>
     );

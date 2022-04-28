@@ -27,6 +27,7 @@ const NewPet = (props) => {
         info: "",
         city: "",
         state: "",
+        img:"",
     })
 
     // ------------- FUNCTIONS ---------------
@@ -63,6 +64,7 @@ const NewPet = (props) => {
                 info: "",
                 city: "",
                 state: "",
+                img:"",
             })
             // set the valid state to true to show message
             setIsValidState({
