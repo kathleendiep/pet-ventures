@@ -91,14 +91,14 @@ const NewPet = (props) => {
             const response = JSON.parse(xhr.responseText);
             // setImage(response.secure_url);
           
-            console.log(response.secure_url.toString());
+            console.log(response.secure_url);
 
             setNewPet({
                 ...newPet,
               //   this will equal to e.target.files 
-                img: response.secure_url.toString()
+                img: response.secure_url
             })
-         console.log("this is img", newPet.img )
+
           }
         };
     
@@ -110,8 +110,6 @@ const NewPet = (props) => {
         fd.append("file", file);
         xhr.send(fd);
       }
-
-
 
     const submitNewPet = async (e) => {
         e.preventDefault()
@@ -150,6 +148,7 @@ const NewPet = (props) => {
     }
     
     return (
+        
         <>
             <Button variant="primary" onClick={handleShow} className="custom-btn">
                 Create

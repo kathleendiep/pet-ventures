@@ -9,10 +9,9 @@ const PetContainer = () => {
     const createNewPet = async (newPet) => {
         console.log("Let's create this!");
         // newPet.img = image
-        const apiResponse = await fetch("https://pet-ventures-api.herokuapp.com/api/pets/", {
+        const apiResponse = await fetch(`https://pet-ventures-api.herokuapp.com/api/pets/`, {
             method: "POST",
             body: JSON.stringify(newPet),
-            // Boilerplate: its coming from json
             headers: {
                 "Content-Type": "application/json"
             }

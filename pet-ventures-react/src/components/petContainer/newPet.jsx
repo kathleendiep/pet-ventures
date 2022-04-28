@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import Modal from 'react-bootstrap/Modal'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import DropdownButton from 'react-bootstrap/DropdownButton'
 import { useNavigate } from 'react-router-dom'
 import { Navigate } from 'react-router-dom'
-
+import InputGroup from 'react-bootstrap/InputGroup'
+import FormControl from 'react-bootstrap/FormControl'
 const NewPet = (props) => {
     let navigate = useNavigate()
     const [show, setShow] = useState(false);
@@ -12,7 +14,7 @@ const NewPet = (props) => {
         setShow(false);
     }
     const handleShow = () => setShow(true);
-    const [isValidState, setIsValidState] = useState({valid: true, message: ""})
+    const [isValidState, setIsValidState] = useState({ valid: true, message: "" })
     // FORM
     const [showing, setShowing] = useState(false)
     // function that setShowing function as TRUE! = !true when clicked on 
@@ -27,7 +29,7 @@ const NewPet = (props) => {
         info: "",
         city: "",
         state: "",
-        img:"",
+        img: "",
     })
 
     // ------------- FUNCTIONS ---------------
@@ -51,7 +53,6 @@ const NewPet = (props) => {
             })
             validSubmission = false;
         }
-
         // if it is a validsubmission we can create and set new item 
         if (validSubmission) {
             // from parent function
@@ -64,7 +65,7 @@ const NewPet = (props) => {
                 info: "",
                 city: "",
                 state: "",
-                img:"",
+                img: "",
             })
             // set the valid state to true to show message
             setIsValidState({
@@ -72,7 +73,6 @@ const NewPet = (props) => {
                 message: ""
             })
             navigate('/home');
-
         }
     }
     return (
@@ -95,33 +95,42 @@ const NewPet = (props) => {
                         {/* onChange listens to whats in here based on function - put this on both*/}
                         {/* name needs to be same as model schema */}
                         {/* data binding - backend and front end sync */}
-                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Group className="mb-3" >
                             <Form.Label>Pet Name:</Form.Label>
                             <Form.Control onChange={handleInputChange} type="text" name="name" value={newPet.name} />
                         </Form.Group>
+    <Form.Group className="mb-3">
+        <Form.Label>Category</Form.Label>
+        <Form.Control
+          as="select"
+          value={newPet.category}
+          onChange={handleInputChange} 
+          type="text" name="category" 
+        >
+          <option value="dog">Dog</option>
+          <option value="cat">Cat</option>
+        </Form.Control>
+      </Form.Group>
+                     
 
-                        <Form.Group className="mb-3" controlId="formBasicEmail">
-                            <Form.Label>Category:</Form.Label>
-                            <Form.Control onChange={handleInputChange} type="text" name="category" value={newPet.category} />
-                        </Form.Group>
-                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Group className="mb-3">
                             <Form.Label>Breed:</Form.Label>
                             <Form.Control onChange={handleInputChange} type="text" name="breed" value={newPet.breed} />
                         </Form.Group>
-                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Group className="mb-3">
                             <Form.Label>Fun facts about your pet:</Form.Label>
-                            <Form.Control onChange={handleInputChange} type="text" name="info" value={newPet.info} />
+                            <Form.Control onChange={handleInputChange} type="text" name="info" value={newPet.info} placeholder="ex: what does your pet like to do for fun?"  />
                         </Form.Group>
-                        <Form.Group className="mb-3" controlId="formBasicEmail"> 
+                        <Form.Group className="mb-3" >
                             <Form.Label>City:</Form.Label>
                             <Form.Control onChange={handleInputChange} type="text" name="city" value={newPet.city} />
                         </Form.Group>
-                            <Form.Label>State:</Form.Label>
-                            <Form.Control onChange={handleInputChange} type="text" name="state" value={newPet.state} />
-                        {/* <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Label>State:</Form.Label>
+                        <Form.Control onChange={handleInputChange} type="text" name="state" value={newPet.state} />
+                        <Form.Group className="mb-3" >
                             <Form.Label>Image Link:</Form.Label>
-                            <Form.Control onChange={handleInputChange} type="text" name="image" value={newPet.image} />
-                        </Form.Group> */}
+                            <Form.Control onChange={handleInputChange} type="text" name="img" value={newPet.img} />
+                        </Form.Group>
                         <Button type="submit" onClick={handleClose}>
                             Add
                         </Button>
@@ -131,5 +140,4 @@ const NewPet = (props) => {
         </>
     );
 }
-
 export default NewPet;
