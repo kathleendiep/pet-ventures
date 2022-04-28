@@ -80,7 +80,7 @@ const PetContainer = () => {
                 />
             </span>
             {pets.map((pet)=>{
-                return <SinglePet key={pet.id} pet={pet} deletePet={deletePet} />
+                return <SinglePet key={pet.id} pet={pet} pets={pets} deletePet={deletePet} />
             })}
         </>
     );

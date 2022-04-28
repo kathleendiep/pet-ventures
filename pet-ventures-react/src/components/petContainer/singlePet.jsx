@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import Modal from 'react-bootstrap/Modal'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import UpdatePet from './updateSnack/updatePet';
 
 const SinglePet = (props) => {
   const [showing, setShowing] = useState(false)
@@ -37,34 +38,35 @@ const SinglePet = (props) => {
       [e.target.name]: e.target.value
     })
   }
-  // 1. create this function to update an item 
-  // we set validsubmission to true 
-  const submitUpdatePet = (e) => {
-    // preventDefault - if this does not get handled then it should not be taken as it normally would be
-    e.preventDefault();
-    //from the parent updateItem - get the id and update the item 
-    props.updatePet(props.pet.id, updatePet)
-    console.log("updatingItem!")
-    // return < Redirect to="/" />;
-  }
+  // // 1. create this function to update an item 
+  // // we set validsubmission to true 
+  // const submitUpdatePet = (e) => {
+  //   // preventDefault - if this does not get handled then it should not be taken as it normally would be
+  //   e.preventDefault();
+  //   //from the parent updateItem - get the id and update the item 
+  //   props.updatePet(props.pet.id, updatePet)
+  //   console.log("updatingItem!")
+  //   // return < Redirect to="/" />;
+  // }
 
-  const updatePet = async (idToUpdate) => {
-    console.log(updatePet)
+  const updatingPet = async (idToUpdate) => {
+    console.log("is this working")
     // get id from child and put it together
-    const apiResponse = await fetch(`https://pet-ventures-api.herokuapp.com/api/pets/${idToUpdate}`, {
+    const updateResponse = await fetch(`https://pet-ventures-api.herokuapp.com/api/pets/${idToUpdate}/`, {
         method: "PUT",
         body: JSON.stringify(updatePet),
         headers: {
             "Content-Type": "application/json"
         }
     })
-    console.log()
-    if (apiResponse.status == 200) {
-        const parsedResponse = await apiResponse.json()
-            const newPets = pets.map(pet=> pet.id  === idToUpdate ? parsedResponse : pet )
+    console.log("updating")
+    console.log(updateResponse.status)
+    if (updateResponse.status == 200) {
+        const parsedResponse = await updateResponse.json()
+            const newPets = props.pets.map(pet=> pet.id  === idToUpdate ? parsedResponse : pet )
         setUpdatePet(newPets)
     }
-    console.log(apiResponse.status)
+    console.log(updateResponse.status)
 }
 
   return (
@@ -97,6 +99,13 @@ const SinglePet = (props) => {
                 <div className="col">
                   <button onClick={() => props.deletePet(props.pet.id)} className="btn btn-danger">Delete</button>
                 </div>
+                {/* <UpdatePet
+                    pet={props.pet}
+                    updatePet={props.updatePet}
+                    handleInputChange={props.handleInputChange}
+                    updatingPet={props.updatingPet}
+                 /> */}
+
                 {/* ---------------- UPDATE --------------------- */}
                 {/* if its showing = true, then show this create new form, else show CREATE NEW ITEM button*/}
                 {/* by default, showing will be false, unless button clicked, then it will show true!  */}
@@ -111,7 +120,8 @@ const SinglePet = (props) => {
                     <Modal.Body>
                       {/* this will make the showing set from true to false and close out the div */}
                       {/* create the onSubmit form */}
-                      <Form onSubmit={submitUpdatePet}>
+           
+                      <Form  onSubmit={(e) => { e.preventDefault(); updatingPet(updatePet.id) }}>
                         <Form.Group className="mb-3" >
                           <Form.Label>Pet Name:</Form.Label>
                           <Form.Control onChange={handleInputChange} type="text" name="name" value={updatePet.name} />
