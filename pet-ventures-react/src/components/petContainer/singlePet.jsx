@@ -48,8 +48,26 @@ const SinglePet = (props) => {
     // return < Redirect to="/" />;
   }
 
-  return (
+  const updatePet = async (idToUpdate) => {
+    console.log(updatePet)
+    // get id from child and put it together
+    const apiResponse = await fetch(`https://pet-ventures-api.herokuapp.com/api/pets/${idToUpdate}`, {
+        method: "PUT",
+        body: JSON.stringify(updatePet),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+    console.log()
+    if (apiResponse.status == 200) {
+        const parsedResponse = await apiResponse.json()
+            const newPets = pets.map(pet=> pet.id  === idToUpdate ? parsedResponse : pet )
+        setUpdatePet(newPets)
+    }
+    console.log(apiResponse.status)
+}
 
+  return (
       <div className="single-item-component">
         <div class="cards">
           <div class="card">

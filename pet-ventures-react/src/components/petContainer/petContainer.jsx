@@ -41,22 +41,24 @@ const PetContainer = () => {
             }
         }
     
-        const updatePet = async (idToUpdate, petToUpdate) => {
-            const apiResponse = await fetch(`https://pet-ventures-api.herokuapp.com/api/pets/${idToUpdate}`,{
-                method: "PUT",
-                body: JSON.stringify(petToUpdate),
-                headers: {
-                    "Content-Type": "application/json"
-                }
-            })
-            const parsedResponse = await apiResponse.json();
-            if (parsedResponse.success){
-                const newPets = pets.map(pet=> pet.id  === idToUpdate ? petToUpdate : pet )
-                setPets(newPets)
-            }else{
-                setRequestError(parsedResponse.data)
-         }
-        }
+        // const updatePet = async (idToUpdate, petToUpdate) => {
+
+        //     const apiResponse = await fetch(`https://pet-ventures-api.herokuapp.com/api/pets/${idToUpdate}`,{
+        //         method: "PUT",
+        //         body: JSON.stringify(petToUpdate),
+        //         headers: {
+        //             "Content-Type": "application/json"
+        //         }
+        //     })
+        //     console.log(apiResponse.status)
+        //     if (apiResponse.status == 200){
+        //         const parsedResponse = await apiResponse.json()
+        //         const newPets = pets.map(pet=> pet.id  === idToUpdate ? parsedResponse : pet )
+        //         setPets(newPets)
+        //     }else{
+        //         setRequestError(apiResponse.data)
+        //  }
+        // }
     useEffect(() => {
         fetch('https://pet-ventures-api.herokuapp.com/api/pets/', {
             'method': 'GET',
@@ -78,7 +80,7 @@ const PetContainer = () => {
                 />
             </span>
             {pets.map((pet)=>{
-                return <SinglePet key={pet.id} pet={pet} deletePet={deletePet} updatePet={updatePet}/>
+                return <SinglePet key={pet.id} pet={pet} deletePet={deletePet} />
             })}
         </>
     );

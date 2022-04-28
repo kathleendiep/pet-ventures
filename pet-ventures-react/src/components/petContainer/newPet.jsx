@@ -97,19 +97,19 @@ const NewPet = (props) => {
                             <Form.Label>Pet Name:</Form.Label>
                             <Form.Control onChange={handleInputChange} type="text" name="name" value={newPet.name} />
                         </Form.Group>
-    <Form.Group className="mb-3">
-        <Form.Label>Category</Form.Label>
-        <Form.Control
-          as="select"
-          value={newPet.category}
-          onChange={handleInputChange} 
-          type="text" name="category" 
-        >
-          <option>Dog</option>
-          <option>Cat</option>
-        </Form.Control>
-      </Form.Group>
-                     
+                        <Form.Group className="mb-3">
+                            <Form.Label>Category</Form.Label>
+                            <Form.Control
+                                as="select"
+                                value={newPet.category}
+                                onChange={handleInputChange}
+                                type="text" name="category"
+                            >
+                                <option>Dog</option>
+                                <option>Cat</option>
+                            </Form.Control>
+                        </Form.Group>
+
 
                         <Form.Group className="mb-3">
                             <Form.Label>Breed:</Form.Label>
@@ -117,7 +117,7 @@ const NewPet = (props) => {
                         </Form.Group>
                         <Form.Group className="mb-3">
                             <Form.Label>Fun facts about your pet:</Form.Label>
-                            <Form.Control onChange={handleInputChange} type="text" name="info" value={newPet.info} placeholder="ex: what does your pet like to do for fun?"  />
+                            <Form.Control onChange={handleInputChange} type="text" name="info" value={newPet.info} placeholder="ex: what does your pet like to do for fun?" />
                         </Form.Group>
                         <Form.Group className="mb-3" >
                             <Form.Label>City:</Form.Label>
