@@ -2,11 +2,9 @@ import React, { useState } from 'react';
 import Modal from 'react-bootstrap/Modal'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
-import DropdownButton from 'react-bootstrap/DropdownButton'
 import { useNavigate } from 'react-router-dom'
-import { Navigate } from 'react-router-dom'
-import InputGroup from 'react-bootstrap/InputGroup'
-import FormControl from 'react-bootstrap/FormControl'
+import './pet.scss'
+
 const NewPet = (props) => {
     let navigate = useNavigate()
     const [show, setShow] = useState(false);
@@ -80,7 +78,7 @@ const NewPet = (props) => {
             <Button variant="primary" onClick={handleShow} className="custom-btn">
                 Create
             </Button>
-            <Modal show={show} onHide={handleClose}>
+            <Modal show={show} onHide={handleClose} className="modal-body">
                 <Modal.Header closeButton>
                     <Modal.Title>Add new pet!</Modal.Title>
                 </Modal.Header>
@@ -107,8 +105,8 @@ const NewPet = (props) => {
           onChange={handleInputChange} 
           type="text" name="category" 
         >
-          <option value="dog">Dog</option>
-          <option value="cat">Cat</option>
+          <option>Dog</option>
+          <option>Cat</option>
         </Form.Control>
       </Form.Group>
                      

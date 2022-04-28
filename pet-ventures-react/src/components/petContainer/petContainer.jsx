@@ -41,7 +41,22 @@ const PetContainer = () => {
             }
         }
     
-        
+        const updatePet = async (idToUpdate, petToUpdate) => {
+            const apiResponse = await fetch(`https://pet-ventures-api.herokuapp.com/api/pets/${idToUpdate}`,{
+                method: "PUT",
+                body: JSON.stringify(petToUpdate),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+            const parsedResponse = await apiResponse.json();
+            if (parsedResponse.success){
+                const newPets = pets.map(pet=> pet.id  === idToUpdate ? petToUpdate : pet )
+                setPets(newPets)
+            }else{
+                setRequestError(parsedResponse.data)
+         }
+        }
     useEffect(() => {
         fetch('https://pet-ventures-api.herokuapp.com/api/pets/', {
             'method': 'GET',
@@ -62,9 +77,8 @@ const PetContainer = () => {
                     createNewPet={createNewPet}
                 />
             </span>
-
             {pets.map((pet)=>{
-                return <SinglePet key={pet.id} pet={pet} deletePet={deletePet}/>
+                return <SinglePet key={pet.id} pet={pet} deletePet={deletePet} updatePet={updatePet}/>
             })}
         </>
     );
