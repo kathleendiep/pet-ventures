@@ -6,7 +6,7 @@ const SinglePet = (props) => {
         <div class="cards">
           <div class="card">
             <div class="img">
-              {/* <img className="image-voyager" src=></img> */}
+              <img className="image-voyager" src={props.pet.img}></img>
             </div>
             <div class="card__body">
               <div class="card__color-picker">

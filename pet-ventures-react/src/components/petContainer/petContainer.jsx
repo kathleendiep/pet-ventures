@@ -1,12 +1,12 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import NewPet from "./newPet";
 import SinglePet from "./singlePet";
 import { Navigate } from 'react-router-dom'
 const PetContainer = () => {
     const [pets, setPets] = useState([]);
-    const [newItemServerError, setNewItemsServerError] = useState("");
-    const [requestError, setRequestError] = useState("")
+    // const [newItemServerError, setNewItemsServerError] = useState("");
+    // const [requestError, setRequestError] = useState("")
     // // INDEX: GET 
     // const getPets = async () => {
     //     try {
@@ -26,6 +26,8 @@ const PetContainer = () => {
     const createNewPet = async (newPet) => {
         console.log("Let's create this!");
         // const apiResponse = await fetch("http://localhost:3001/voyagers/",{
+        // console.log(newPet, image, "this is a new pet")
+        // newPet.img = image
         const apiResponse = await fetch("https://pet-ventures-api.herokuapp.com/api/pets/", {
             method: "POST",
             // stringify the object newVoyager
@@ -38,7 +40,7 @@ const PetContainer = () => {
         const parsedResponse = await apiResponse.json();
         // make sure it shows: {success:true,data: object}
         console.log(parsedResponse)
-        // if it is successful, then add to items
+        // if it is successful, thn add to items
         if (parsedResponse.success) {
             setPets([parsedResponse.data, ...pets])
    
