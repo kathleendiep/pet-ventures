@@ -77,7 +77,12 @@ const PetContainer = (props) => {
 
     return (
         <>
-            <h1>Check out some pets!</h1>
+        <div class="home"> 
+        <div>
+            <span className="pet-title">Check out some pets!</span>
+        </div>
+        <div className="underline"></div>
+        </div>
             <span>
                 <NewPet
                     createNewPet={createNewPet}

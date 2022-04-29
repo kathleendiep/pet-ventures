@@ -1,5 +1,20 @@
 
-// SINGLE SNACK
+// HEADERS
+.pet-title {
+    position: relative;
+}
+.underline {
+    background: #e5e4e2;
+    width: 10em;
+    height: .8em;
+    position: absolute;
+    right: 0;
+    z-index: -1;
+    bottom: 0;
+    border-radius: 5em;
+}
+
+// SINGLE PET
 .single-item-component{
 margin: 0 auto;
 
@@ -180,9 +195,7 @@ li {
     background-position: 50% 70%;
 }
 
-/* to center an image */
-/* margin-left: auto;
-  margin-right: auto; */
+
 
 @media(min-width: 660px) {
     .image-voyager {
@@ -220,7 +233,26 @@ li {
 
 /* BUTTONS */
 
+.button {
+    width: 20vw;
+    color: white;
+    font-size: 15px;
+    border: none;
+    border-radius: 5px;
+    background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+    cursor: pointer;
+    padding: 13px 20px;
+}
 
+.text-link a{
+  color: inherit;
+  text-decoration: inherit;
+}
+.button:hover{
+  background-color: white;
+  color: purple; 
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
 
 .modal-header button:hover {
     border-bottom : 3px solid purple;

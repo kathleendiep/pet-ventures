@@ -33,9 +33,9 @@ const NavBar = (props) => {
             <li data-menuanchor="thirdPage"><Link to="/about">About</Link></li>
             <li data-menuanchor="secondPage"><Link to="/viewall">Snacks</Link></li>
             {props.loggedIn ? 
-             <li><button onClick={handleLogOut}>logout</button> </li>
+             <li><button className="button-log" onClick={handleLogOut}>logout</button> </li>
               :
-               <><li><button><Link to="/login">Register</Link></button></li> <li> <button><Link to="/login">Login</Link></button></li></>}
+               <><li><button className="button-log"><Link to="/login">Register</Link></button></li> <li> <button className="button-log"><Link to="/login">Login</Link></button></li></>}
 
           </ul>
         </div>
