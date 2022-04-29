@@ -1,18 +1,4 @@
-// MODAL 
-.modal-body {
-    position        : absolute;
-    top             : 75%;
-    left            : 50%;
-    transform       : translate(-50%, 0%);
-    background-color: white;
-    padding         : auto;
-    width           : 30rem;
-    border-radius   : 0.5rem;
-    color: var(--dark-color);
-    background: var(--bg-gradient);
-    opacity: .90;
-}
-// CONTAINER
+
 // SINGLE SNACK
 .single-item-component{
 margin: 0 auto;
@@ -164,12 +150,29 @@ h1 {
 
 .card-jobtitle {
     text-transform: lowercase;
-    color         : grey;
+    color         : #5c5c6d;
     letter-spacing: 1px;
     font-size     : 14px;
     margin-top    : -10px;
+    text-decoration: none;
 }
+.card-city{
+    text-transform: lowercase;
+    color: grey; 
+    letter-spacing: 1px;
+    font-size: 14px;
+    margin-top: -5px;
+  }
 
+.from {
+    color: #928c8c; 
+}
+ul {
+    list-style: none;
+}
+li {
+    list-style: none;
+}
 .image-voyager {
     height             : 220px;
     width              : 100%;

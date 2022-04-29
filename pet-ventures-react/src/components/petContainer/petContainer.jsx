@@ -8,7 +8,6 @@ import CustomRightArrow from './customRightArrow.jsx'
 import "react-multi-carousel/lib/styles.css";
 import './pet.scss';
 
-
 const PetContainer = (props) => {
     const [pets, setPets] = useState([]);
     const [requestError, setRequestError] = useState("")

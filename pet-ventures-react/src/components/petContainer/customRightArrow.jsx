@@ -1,5 +1,6 @@
 
 import React from "react";
+import './modal.scss'
 
 const CustomRightArrow = ({ onClick, ...rest }) => {
     const {

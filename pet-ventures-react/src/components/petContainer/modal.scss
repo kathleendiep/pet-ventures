@@ -1,0 +1,14 @@
+// MODAL 
+.modal-body {
+    position        : absolute;
+    top             : 75%;
+    left            : 50%;
+    transform       : translate(-50%, 0%);
+    background-color: white;
+    padding         : auto;
+    width           : 30rem;
+    border-radius   : 0.5rem;
+    color: var(--dark-color);
+    background: var(--bg-gradient);
+    opacity: .90;
+}

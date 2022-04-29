@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
-import Modal from 'react-bootstrap/Modal'
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
 import UpdatePet from './updatePet/updatePet';
+import ConfirmModal from './confirmModal';
 import './pet.scss';
 
 const SinglePet = (props) => {
@@ -12,6 +10,13 @@ const SinglePet = (props) => {
     setShowing(!showing)
   }
   let navigate = useNavigate()
+  const [deleteModal, setDeleteModal] = useState(false);
+  const handleCloseDelete = () => {
+      setDeleteModal(false);
+  }
+
+  const handleShowDelete = () => setDeleteModal(true);
+
   const [show, setShow] = useState(false);
   const handleClose = () => {
     setShow(false);
@@ -76,22 +81,27 @@ const SinglePet = (props) => {
                 <span></span>
               </div>
               <h2 className="card-title">{props.pet.name}</h2>
-              <h3 >{props.pet.category}</h3>
+              {/* <h3 className="card-jobtitle">{props.pet.category}</h3> */}
               <li className="card-jobtitle">{props.pet.breed}</li>
-              <li>{props.pet.city}</li>
+              <div class="card-city"><i className="from">from</i> {props.pet.city}</div>
               <div class="card-content">
                 <div class="card-subtitle">ABOUT</div>
-                <p class="card-desc">{props.pet.infos}</p>
+                <p class="card-desc">{props.pet.info}</p>
               </div>
               <div class="card-buttons">
                 {/* ---------------- delete button ---------------- */}
-                {/* <button onClick={()=>{
-                // finds the id of item
-                
-                }}>Delete</button> */}
-                <div className="col">
+                <ConfirmModal
+                  handleCloseDelete={handleCloseDelete}
+                  handleShowDelete={handleShowDelete}
+                  deleteModal={deleteModal}
+                  deletePet={props.deletePet}
+                  pet={props.pet}
+                />
+
+                {/* <div className="col">
                   <button onClick={() => props.deletePet(props.pet.id)} className="btn btn-danger">Delete</button>
-                </div>
+                </div> */}
+
                 <UpdatePet
                     pet={props.pet}
                     updatePet={updatePet}
@@ -100,7 +110,6 @@ const SinglePet = (props) => {
                     updatingPet={updatingPet}
                     handleClose={handleClose}
                     handleShow={handleShow}
-       
                     show={show}
                  />
                 
