@@ -83,7 +83,7 @@ const SinglePet = (props) => {
               <h2 className="card-title">{props.pet.name}</h2>
               {/* <h3 className="card-jobtitle">{props.pet.category}</h3> */}
               <li className="card-jobtitle">{props.pet.breed}</li>
-              <div class="card-city"><i className="from">from</i> {props.pet.city}</div>
+              <div class="card-city"><i className="from">from</i> {props.pet.city}, {props.pet.state}</div>
               <div class="card-content">
                 <div class="card-subtitle">ABOUT</div>
                 <p class="card-desc">{props.pet.info}</p>
@@ -97,11 +97,6 @@ const SinglePet = (props) => {
                   deletePet={props.deletePet}
                   pet={props.pet}
                 />
-
-                {/* <div className="col">
-                  <button onClick={() => props.deletePet(props.pet.id)} className="btn btn-danger">Delete</button>
-                </div> */}
-
                 <UpdatePet
                     pet={props.pet}
                     updatePet={updatePet}

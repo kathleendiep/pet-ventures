@@ -3,13 +3,12 @@ import { useState } from 'react'
 import Modal from 'react-bootstrap/Modal'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
-import './updatePet.css'
 
 const UpdatePet = (props) => {
 
     return (
         <>
-        <Button variant="primary" onClick={props.handleShow} className="custom-btn">
+        <Button variant="primary" onClick={props.handleShow} className="action-button">
           Update
         </Button>
         <Modal show={props.show} onHide={props.handleClose} className="modal-body">
@@ -61,7 +60,6 @@ const UpdatePet = (props) => {
               </Form.Group>
               <Form.Label>State:</Form.Label>
               <Form.Control onChange={props.handleInputChange} type="text" name="state" value={props.updatePet.state} />
-              
                {/* <input type="file" onChange={props.handleInputChange}  name="img" defaultValue={props.updatePet.img}/>  */}
               <Button type="submit" onClick={props.handleClose}>
                 Submit

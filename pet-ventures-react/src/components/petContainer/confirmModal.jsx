@@ -7,16 +7,16 @@ import './modal.scss'
 const ConfirmModal = (props) => {
     return (
       <>
-        <Button variant="primary" onClick={props.handleShowDelete}>
+        <Button variant="primary" className="btn btn-danger action-button" onClick={props.handleShowDelete}>
           Delete
         </Button>
-        <Modal show={props.deleteModal} onHide={props.handleCloseDelete} className="modal-body">
-          <Modal.Header closeButton>
+        <Modal show={props.deleteModal} onHide={props.handleCloseDelete} className="confirm-modal">
+          <Modal.Header closeButton className="confirm-modal">
             <Modal.Title>Are you sure you want to delete? </Modal.Title>
           </Modal.Header>
           <Modal.Footer>
           <div className="col">
-            <Button variant="secondary" onClick={props.handleCloseDelete}>
+            <Button className="button-modal text-link" onClick={props.handleCloseDelete}>
               Nevermind! 
             </Button>
             </div>
