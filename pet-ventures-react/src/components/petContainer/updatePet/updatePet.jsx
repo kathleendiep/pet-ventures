@@ -3,13 +3,13 @@ import { useState } from 'react'
 import Modal from 'react-bootstrap/Modal'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
-
+import { Icon } from '@iconify/react';
 const UpdatePet = (props) => {
 
     return (
         <>
         <Button variant="primary" onClick={props.handleShow} className="action-button">
-          Update
+        <Icon icon="ic:baseline-tips-and-updates" width="2vw" height="2vh" />
         </Button>
         <Modal show={props.show} onHide={props.handleClose} className="modal-body">
           <Modal.Header closeButton>
@@ -19,17 +19,11 @@ const UpdatePet = (props) => {
             {/* this will make the showing set from true to false and close out the div */}
             {/* create the onSubmit form */}
             <Form  onSubmit={(e) => { e.preventDefault(); props.updatingPet(props.updatePet.id) }}>
-
-   
           <div class="card">
             <div class="img">
               <img className="image-voyager" src={props.updatePet.img}></img>
             </div>
             </div>
-  
-       
-      
-
               <Form.Group className="mb-3" >
                 <Form.Label>Pet Name:</Form.Label>
                 <Form.Control onChange={props.handleInputChange} type="text" name="name" value={props.updatePet.name} />

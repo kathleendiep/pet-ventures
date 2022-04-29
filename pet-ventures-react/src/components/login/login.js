@@ -6,7 +6,7 @@ import Post from '../../Post';
 import NavBar from '../navBar/navBar';
 import { useCookies } from 'react-cookie';
 import { useNavigate } from 'react-router-dom';
-
+// https://codepen.io/ricardoolivaalonso/pen/YzyaRPN
 const Login = (props) => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')

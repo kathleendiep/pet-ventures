@@ -3,12 +3,13 @@ import React, { useState } from 'react';
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import './modal.scss'
+import { Icon } from '@iconify/react';
 
 const ConfirmModal = (props) => {
     return (
       <>
         <Button variant="primary" className="btn btn-danger action-button" onClick={props.handleShowDelete}>
-          Delete
+        <Icon icon="fluent:delete-16-filled" width="3vw" height="3vh" />
         </Button>
         <Modal show={props.deleteModal} onHide={props.handleCloseDelete} className="confirm-modal">
           <Modal.Header closeButton className="confirm-modal">
