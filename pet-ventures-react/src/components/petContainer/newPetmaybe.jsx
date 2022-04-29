@@ -3,8 +3,7 @@ import Modal from 'react-bootstrap/Modal'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import { useNavigate } from 'react-router-dom'
-import { Navigate } from 'react-router-dom'
-
+import './pet.scss'
 
 const NewPet = (props) => {
     let navigate = useNavigate()
@@ -13,7 +12,7 @@ const NewPet = (props) => {
         setShow(false);
     }
     const handleShow = () => setShow(true);
-    const [isValidState, setIsValidState] = useState({valid: true, message: ""})
+    const [isValidState, setIsValidState] = useState({ valid: true, message: "" })
     // FORM
     const [showing, setShowing] = useState(false)
     // function that setShowing function as TRUE! = !true when clicked on 
@@ -31,6 +30,7 @@ const NewPet = (props) => {
         img: "",
     })
 
+    // ------------- FUNCTIONS ---------------
     const fileSelect = useRef(null);
     const [image, setImage] = useState();
     const [progress, setProgress] = useState(0);
@@ -40,7 +40,7 @@ const NewPet = (props) => {
         fileSelect.current.click();
       }
     }
-    // ------------- FUNCTIONS ---------------
+
     const handleInputChange = (e) => {
         // recall function
         setNewPet({
@@ -89,7 +89,6 @@ const NewPet = (props) => {
             })
           }
         };
-    
         fd.append(
           "upload_preset",
           unsigned
@@ -135,13 +134,12 @@ const NewPet = (props) => {
 
       }
     }
-    
     return (
         <>
             <Button variant="primary" onClick={handleShow} className="custom-btn">
                 Create
             </Button>
-            <Modal show={show} onHide={handleClose}>
+            <Modal show={show} onHide={handleClose} className="modal-body">
                 <Modal.Header closeButton>
                     <Modal.Title>Add new pet!</Modal.Title>
                 </Modal.Header>
@@ -156,47 +154,38 @@ const NewPet = (props) => {
                         {/* onChange listens to whats in here based on function - put this on both*/}
                         {/* name needs to be same as model schema */}
                         {/* data binding - backend and front end sync */}
-                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Group className="mb-3" >
                             <Form.Label>Pet Name:</Form.Label>
                             <Form.Control onChange={handleInputChange} type="text" name="name" value={newPet.name} />
                         </Form.Group>
-                        {/* <Form.Group className="mb-3" controlId="formBasicEmail">
-                            <Form.Label>Category:</Form.Label>
-                            <Form.Control onChange={handleInputChange} type="text" name="category" value={newPet.category} />
-                        </Form.Group> */}
-
                         <Form.Group className="mb-3">
                             <Form.Label>Category</Form.Label>
                             <Form.Control
                                 as="select"
-                                onChange={handleInputChange}
-                                type="text"
-                                name="category"
                                 value={newPet.category}
+                                onChange={handleInputChange}
+                                type="text" name="category"
                             >
-                                <option > select one </option>
                                 <option>Dog</option>
                                 <option>Cat</option>
                             </Form.Control>
                         </Form.Group>
-                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Group className="mb-3">
                             <Form.Label>Breed:</Form.Label>
                             <Form.Control onChange={handleInputChange} type="text" name="breed" value={newPet.breed} />
                         </Form.Group>
-                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Group className="mb-3">
                             <Form.Label>Fun facts about your pet:</Form.Label>
-                            <Form.Control onChange={handleInputChange} type="text" name="info" value={newPet.info} />
+                            <Form.Control onChange={handleInputChange} type="text" name="info" value={newPet.info} placeholder="ex: what does your pet like to do for fun?" />
                         </Form.Group>
-                        <Form.Group className="mb-3" controlId="formBasicEmail"> 
+                        <Form.Group className="mb-3" >
                             <Form.Label>City:</Form.Label>
                             <Form.Control onChange={handleInputChange} type="text" name="city" value={newPet.city} />
                         </Form.Group>
-                            <Form.Label>State:</Form.Label>
-                            <Form.Control onChange={handleInputChange} type="text" name="state" value={newPet.state} />
-             
+                        <Form.Label>State:</Form.Label>
+                        <Form.Control onChange={handleInputChange} type="text" name="state" value={newPet.state} />
                         <input type="file" onChange={(e) => handleFiles(e.target.files)} name="img" defaultValue={newPet.img} ></input>
 
-                
                         <Button type="submit" onClick={handleClose}>
                             Add
                         </Button>
@@ -206,5 +195,4 @@ const NewPet = (props) => {
         </>
     );
 }
-
 export default NewPet;

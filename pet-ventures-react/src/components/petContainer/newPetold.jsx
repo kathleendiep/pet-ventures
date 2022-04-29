@@ -1,10 +1,9 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef} from 'react';
 import Modal from 'react-bootstrap/Modal'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import { useNavigate } from 'react-router-dom'
 import { Navigate } from 'react-router-dom'
-
 
 const NewPet = (props) => {
     let navigate = useNavigate()
@@ -28,7 +27,7 @@ const NewPet = (props) => {
         info: "",
         city: "",
         state: "",
-        img: "",
+        img:"",
     })
 
     const fileSelect = useRef(null);
@@ -47,25 +46,34 @@ const NewPet = (props) => {
             // list out all the old objects
             ...newPet,
             // finds the value and sets it 
-            [e.target.name]: e.target.value,
+            [e.target.name]: e.target.value
         })
     }
-    async function handleImageUpload() {
-        if (fileSelect) {
-          fileSelect.current.click();
-        }
-      }
-    
-      function handleFiles(files) {
-        console.log("handleFiles");
-        console.log(files);
-        for (let i = 0; i < files.length; i++) {
-          console.log(files[i]);
-          uploadFile(files[i]);
-        }
-      }
+    function handleImageChange(files) {
+   
+      uploadFile(files[0]);
+      const imagefield = files[0]
+      console.log(imagefield)
+    }
+  //   // when you are putting in image field, set the new image to img  
+  //   function handleImageChange(files){
+  //       setNewPet({
+  //           ...newPet,
+  //         //   this will equal to e.target.files 
+  //           img: files
+  //       })
+  //       console.log(newPet);
+  //     //   we are calling in upload file function here 
+  //     console.log("this is the e file", files)
+  //     console.log("this is img", newPet.img )
+
+  //     // e.target.files = files > and do the upload function to send to the server 
+  //     uploadFile(files)
+  
+  // }
+
     function uploadFile(file) {
-        const url = `https://api.cloudinary.com/v1_1/katdiep/upload`;
+        const url = `https://api.cloudinary.com/v1_1/katdiep/image/upload`;
         const unsigned = 'cloudinary_unsigned';
         const xhr = new XMLHttpRequest();
         const fd = new FormData();
@@ -80,13 +88,16 @@ const NewPet = (props) => {
         xhr.onreadystatechange = (e) => {
           if (xhr.readyState == 4 && xhr.status == 200) {
             const response = JSON.parse(xhr.responseText);
-            setImage(response.secure_url);
-            const imageFile = response.secure_url;
-            // console.log(response.secure_url);
+            // setImage(response.secure_url);
+          
+            console.log(response.secure_url);
+
             setNewPet({
                 ...newPet,
-                img: imageFile,
+              //   this will equal to e.target.files 
+                img: response.secure_url
             })
+
           }
         };
     
@@ -99,8 +110,6 @@ const NewPet = (props) => {
         xhr.send(fd);
       }
 
-
-
     const submitNewPet = async (e) => {
         e.preventDefault()
         let validSubmission = true;
@@ -112,10 +121,12 @@ const NewPet = (props) => {
             })
             validSubmission = false;
         }
+
         // if it is a validsubmission we can create and set new item 
         if (validSubmission) {
-            console.log("this is image", image)
+      
             props.createNewPet(newPet)
+
             setNewPet({
                 name: "",
                 category: "",
@@ -123,9 +134,8 @@ const NewPet = (props) => {
                 info: "",
                 city: "",
                 state: "",
-                img: ""
+                img:"",
             })
-        
             // set the valid state to true to show message
             setIsValidState({
                 valid: true,
@@ -137,6 +147,7 @@ const NewPet = (props) => {
     }
     
     return (
+        
         <>
             <Button variant="primary" onClick={handleShow} className="custom-btn">
                 Create
@@ -160,24 +171,10 @@ const NewPet = (props) => {
                             <Form.Label>Pet Name:</Form.Label>
                             <Form.Control onChange={handleInputChange} type="text" name="name" value={newPet.name} />
                         </Form.Group>
-                        {/* <Form.Group className="mb-3" controlId="formBasicEmail">
+
+                        <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Label>Category:</Form.Label>
                             <Form.Control onChange={handleInputChange} type="text" name="category" value={newPet.category} />
-                        </Form.Group> */}
-
-                        <Form.Group className="mb-3">
-                            <Form.Label>Category</Form.Label>
-                            <Form.Control
-                                as="select"
-                                onChange={handleInputChange}
-                                type="text"
-                                name="category"
-                                value={newPet.category}
-                            >
-                                <option > select one </option>
-                                <option>Dog</option>
-                                <option>Cat</option>
-                            </Form.Control>
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Label>Breed:</Form.Label>
@@ -193,10 +190,19 @@ const NewPet = (props) => {
                         </Form.Group>
                             <Form.Label>State:</Form.Label>
                             <Form.Control onChange={handleInputChange} type="text" name="state" value={newPet.state} />
-             
-                        <input type="file" onChange={(e) => handleFiles(e.target.files)} name="img" defaultValue={newPet.img} ></input>
-
-                
+                        {/* <Form.Group className="mb-3" controlId="formBasicEmail">
+                            <Form.Label>Image Link:</Form.Label>
+                            <Form.Control onChange={handleInputChange} type="text" name="image" value={newPet.image} />
+                        </Form.Group> */}
+                        {/* <input type="file" onChange={(e) => handleImageChange(e.target.files)} name="img" value={newPet.img} ></input> */}
+                        <input
+          ref={fileSelect}
+          type="file"
+          name="img" value={newPet.img}
+          accept="image/*"
+          style={{ display: "block" }}
+          onChange={(e) => handleImageChange(e.target.files)}
+        />
                         <Button type="submit" onClick={handleClose}>
                             Add
                         </Button>

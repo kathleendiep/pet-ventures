@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom'
 import Modal from 'react-bootstrap/Modal'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
-import UpdatePet from './updateSnack/updatePet';
+import UpdatePet from './updatePet/updatePet';
+import './pet.scss';
 
 const SinglePet = (props) => {
   const [showing, setShowing] = useState(false)
@@ -35,19 +36,9 @@ const SinglePet = (props) => {
       // finds the name and sets to value
       // make sure to put in brackets - 
       // e.target.value - whatever is entered into the search input 
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     })
   }
-  // // 1. create this function to update an item 
-  // // we set validsubmission to true 
-  // const submitUpdatePet = (e) => {
-  //   // preventDefault - if this does not get handled then it should not be taken as it normally would be
-  //   e.preventDefault();
-  //   //from the parent updateItem - get the id and update the item 
-  //   props.updatePet(props.pet.id, updatePet)
-  //   console.log("updatingItem!")
-  //   // return < Redirect to="/" />;
-  // }
 
   const updatingPet = async (idToUpdate) => {
     console.log("is this working")
@@ -63,11 +54,13 @@ const SinglePet = (props) => {
     console.log(updateResponse.status)
     if (updateResponse.status == 200) {
         const parsedResponse = await updateResponse.json()
-            const newPets = props.pets.map(pet=> pet.id  === idToUpdate ? parsedResponse : pet )
+        const newPets = props.pets.map(pet=> pet.id  === idToUpdate ? parsedResponse : pet )
         setUpdatePet(newPets)
     }
     console.log(updateResponse.status)
-}
+  }
+
+
 
   return (
       <div className="single-item-component">
@@ -99,73 +92,19 @@ const SinglePet = (props) => {
                 <div className="col">
                   <button onClick={() => props.deletePet(props.pet.id)} className="btn btn-danger">Delete</button>
                 </div>
-                {/* <UpdatePet
+                <UpdatePet
                     pet={props.pet}
-                    updatePet={props.updatePet}
-                    handleInputChange={props.handleInputChange}
-                    updatingPet={props.updatingPet}
-                 /> */}
-
-                {/* ---------------- UPDATE --------------------- */}
-                {/* if its showing = true, then show this create new form, else show CREATE NEW ITEM button*/}
-                {/* by default, showing will be false, unless button clicked, then it will show true!  */}
-                <>
-                  <Button variant="primary" onClick={handleShow} className="custom-btn">
-                    Update
-                  </Button>
-                  <Modal show={show} onHide={handleClose} className="modal-body">
-                    <Modal.Header closeButton>
-                      <Modal.Title>Update</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>
-                      {/* this will make the showing set from true to false and close out the div */}
-                      {/* create the onSubmit form */}
-           
-                      <Form  onSubmit={(e) => { e.preventDefault(); updatingPet(updatePet.id) }}>
-                        <Form.Group className="mb-3" >
-                          <Form.Label>Pet Name:</Form.Label>
-                          <Form.Control onChange={handleInputChange} type="text" name="name" value={updatePet.name} />
-                        </Form.Group>
-
-                        <Form.Group className="mb-3">
-                          <Form.Label>Category</Form.Label>
-                          <Form.Control
-                            as="select"
-                            value={updatePet.category}
-                            onChange={handleInputChange}
-                            type="text" name="category"
-                          >
-                            <option>Dog</option>
-                            <option>Cat</option>
-                          </Form.Control>
-                        </Form.Group>
-
-
-                        <Form.Group className="mb-3">
-                          <Form.Label>Breed:</Form.Label>
-                          <Form.Control onChange={handleInputChange} type="text" name="breed" value={updatePet.breed} />
-                        </Form.Group>
-                        <Form.Group className="mb-3">
-                          <Form.Label>Fun facts about your pet:</Form.Label>
-                          <Form.Control onChange={handleInputChange} type="text" name="info" value={updatePet.info} placeholder="ex: what does your pet like to do for fun?" />
-                        </Form.Group>
-                        <Form.Group className="mb-3" >
-                          <Form.Label>City:</Form.Label>
-                          <Form.Control onChange={handleInputChange} type="text" name="city" value={updatePet.city} />
-                        </Form.Group>
-                        <Form.Label>State:</Form.Label>
-                        <Form.Control onChange={handleInputChange} type="text" name="state" value={updatePet.state} />
-                        <Form.Group className="mb-3" >
-                          <Form.Label>Image Link:</Form.Label>
-                          <Form.Control onChange={handleInputChange} type="text" name="img" value={updatePet.img} />
-                        </Form.Group>
-                        <Button type="submit" onClick={handleClose}>
-                          Submit
-                        </Button>
-                      </Form>
-                    </Modal.Body>
-                  </Modal>
-                </>
+                    updatePet={updatePet}
+                    setUpdatePet={setUpdatePet}
+                    handleInputChange={handleInputChange}
+                    updatingPet={updatingPet}
+                    handleClose={handleClose}
+                    handleShow={handleShow}
+       
+                    show={show}
+                 />
+                
+                
               </div>
             </div>
           </div>
