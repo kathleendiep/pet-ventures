@@ -1,6 +1,5 @@
 export default class Post {
     static LoginUser(body) {
-
         return fetch('https://pet-ventures-api.herokuapp.com/auth/', {
             'method': 'POST',
             headers: {

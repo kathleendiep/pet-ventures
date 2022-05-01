@@ -221,7 +221,7 @@ const Banner = () => {
                                     find and connect to furiends
                                     {/* <strong>We're gonna talk accessibility, too.</strong> */}
                                 </p>
-                                <button className="button text-link">view more</button>
+                                <button className="button-view text-link">view more</button>
                             </div>
                         </div>
                         <div className="col-lg-6 banner-main-img">

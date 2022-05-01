@@ -113,7 +113,6 @@ const NewPet = (props) => {
         }
         // if it is a validsubmission we can create and set new item 
         if (validSubmission) {
-            console.log("this is image", image)
             props.createNewPet(newPet)
             setNewPet({
                 name: "",
@@ -124,7 +123,8 @@ const NewPet = (props) => {
                 state: "",
                 img: ""
             })
-        
+            console.log(props.tokenOfUser)
+            console.log(props.token)
             // set the valid state to true to show message
             setIsValidState({
                 valid: true,
@@ -190,12 +190,15 @@ const NewPet = (props) => {
                             <Form.Label>City:</Form.Label>
                             <Form.Control onChange={handleInputChange} type="text" name="city" value={newPet.city} />
                         </Form.Group>
+                        <Form.Group>
                             <Form.Label>State:</Form.Label>
                             <Form.Control onChange={handleInputChange} type="text" name="state" value={newPet.state} />
-             
-                        <input type="file" onChange={(e) => handleFiles(e.target.files)} name="img" defaultValue={newPet.img} ></input>
-
-                
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.Label>Picture:</Form.Label>
+                            <Form.Control onChange={(e) => handleFiles(e.target.files)} type="file" name="img" value={newPet.img} />
+                        </Form.Group>
+                        <input type="file" onChange={(e) => handleFiles(e.target.files)} name="img" defaultValue={newPet.img}></input>
                         <Button type="submit" onClick={handleClose}>
                             Add
                         </Button>

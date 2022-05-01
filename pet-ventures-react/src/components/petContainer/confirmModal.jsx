@@ -13,12 +13,12 @@ const ConfirmModal = (props) => {
         </Button>
         <Modal show={props.deleteModal} onHide={props.handleCloseDelete} className="confirm-modal">
           <Modal.Header closeButton className="confirm-modal">
-            <Modal.Title>Are you sure you want to delete? </Modal.Title>
+            <Modal.Title>Are you sure you want to delete {props.pet.name} </Modal.Title>
           </Modal.Header>
           <Modal.Footer>
           <div className="col">
             <Button className="button-modal text-link" onClick={props.handleCloseDelete}>
-              Nevermind! 
+              Nevermind!
             </Button>
             </div>
             <div className="col">

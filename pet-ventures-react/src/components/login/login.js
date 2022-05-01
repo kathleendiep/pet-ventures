@@ -28,7 +28,6 @@ const Login = (props) => {
         .then(resp => props.setToken('mytoken',resp.token))
         console.log(props.token)
         props.setLoggedIn(true)
-  
         (navigate('/home'))
         .then( props.setLoggedIn(true))
         console.log(props.loggedIn)

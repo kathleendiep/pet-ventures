@@ -233,6 +233,15 @@ li {
 
 /* BUTTONS */
 
+.text-link a{
+  color: inherit;
+  text-decoration: inherit;
+}
+.button:hover{
+  background-color: white;
+  color: purple; 
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
 .button {
     width: 20vw;
     color: white;
@@ -243,17 +252,6 @@ li {
     cursor: pointer;
     padding: 13px 20px;
 }
-
-.text-link a{
-  color: inherit;
-  text-decoration: inherit;
-}
-.button:hover{
-  background-color: white;
-  color: purple; 
-  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
-}
-
 .modal-header button:hover {
     border-bottom : 3px solid purple;
     display       : flex;

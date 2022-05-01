@@ -7,20 +7,22 @@ import Carousel from "react-multi-carousel";
 import CustomRightArrow from './customRightArrow.jsx' 
 import "react-multi-carousel/lib/styles.css";
 import './pet.scss';
+import {useCookies} from 'react-cookie';
 
 const PetContainer = (props) => {
     const [pets, setPets] = useState([]);
     const [requestError, setRequestError] = useState("")
     const createNewPet = async (newPet) => {
-        console.log("Let's create this!");
-        // newPet.img = image
+        // const token = localStorage.getItem('mytoken')
         const apiResponse = await fetch(`https://pet-ventures-api.herokuapp.com/api/pets/`, {
             method: "POST",
             body: JSON.stringify(newPet),
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                // 'Authorization':`Token ${token}` 
             }
         })
+    
         const parsedResponse = await apiResponse.json();
         // make sure it shows: {success:true,data: object}
         console.log(parsedResponse)
@@ -67,7 +69,7 @@ const PetContainer = (props) => {
             'method': 'GET',
             headers: {
                 "Content-Type": "application/json",
-                // "Authorization": "Token 0981aae18064eab63095444c81acc49776eb93a6"
+                // 'Authorization':`Token 
             }
         })
             .then(resp => resp.json())
@@ -86,6 +88,7 @@ const PetContainer = (props) => {
             <span>
                 <NewPet
                     createNewPet={createNewPet}
+                    token={props.token}
                 />
             </span>
             {/* <Carousel

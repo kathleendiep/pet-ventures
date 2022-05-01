@@ -10,7 +10,7 @@ const NavBar = (props) => {
   let navigate = useNavigate()
   const handleLogOut = (e) => {
     e.preventDefault()
-    console.log("hello")
+    console.log("before", props.token)
     props.setToken('mytoken', null)
     console.log(props.token)
     props.setLoggedOut(true)
