@@ -22,12 +22,12 @@ const NavBar = (props) => {
 
   return (
     <>
-      <div class="nav-header">
-        <div class="nav-brand">
+      <div className="nav-header">
+        <div className="nav-brand">
           <img src="/img/snacks-world-logo.png"></img>
         </div>
-        <i class="fa fa-bars fa-3x"></i>
-        <div class="header-links">
+        <i className="fa fa-bars fa-3x"></i>
+        <div className="header-links">
           <ul>
             <li data-menuanchor="fourthPage"><Link to="/"> Home</Link></li>
             <li data-menuanchor="thirdPage"><Link to="/about">About</Link></li>
