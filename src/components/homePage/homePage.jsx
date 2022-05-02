@@ -16,10 +16,7 @@ const HomePage = () => {
     <div className="nav-bar">
       <Banner></Banner>
       <PetContainer/>
-      <ProfilesContainer/>
     </div>
   )
 }
 export default HomePage
-
-

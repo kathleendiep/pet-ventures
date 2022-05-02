@@ -38,46 +38,22 @@ class Post(models.Model):
 #### User
 
 ## Project Schedule
-
 | Day   | Deliverable                          | Status     |
 | ----- | ------------------------------------ | ---------- |
-| Day 1 | Planning and Approval                | Complete |
-| Day 2 | Set up backend files and structure, test and deploy backend | Incomplete |
-| Day 3 | Set up frontend files, connect frontend with backend, begin MVP attainment | Complete |
-| Day 4 | Attain MVP, debug MVP, begin styling | Complete |
-| Day 5 | Finalize CSS Styling and Responsive Design, begin postMVP if MVP attained | Complete |
-| Day 6 | Confirm finalized MVP & Bug Fixes | Complete |
-| Day 7 | Final Touches and deploying frontend | Complete |
-| Day 8 | Presentation | Complete |
-
-#### MVP (all in hrs unless otherwise stated)
-
-| Task                          | Priority | Estimated Time | Actual Time |
-| ---------------------------------- | :------: | :------------: | :---------: |
-| Installing and Setup for backend   |    H     |      1       |      3     |
-| User login/auth                    |    H     |      4       |      2     |
-
-
-__ 
-| CRUD Routes and testing on Postman |    H     |      5       |      5    |
-| Deploying backend                  |    H     |     2      |           |
-| Creating React App                 |    H     |      1       |      1     |
-| Add Routes                         |    H     |      2       |     2      |
-| Create Components                  |    H     |      5       |     2      |
-| Connect user authentication on front-end                  |    H     |      10       |     10      |
-| Fetch and test data on frontend    |    H     |      5       |      10     |
-| Search by user on front-end    |    H     |      5       |     10      |
-| Responsive Design                  |    H     |      4       |     5      |
-| CSS and Bootstrap                  |    H     |      4       |     4      |
-| Deploy frontend                    |    H     |      1       |     0.5      |
-| Total                              |    N/A     | 49 |           |
+| Day 1 |  set up react front end                | Complete |
+| Day 1 |  backend, auth, setup react function              | Complete |
+| Day 2 | Heroku, routing, logout | Complete |
+| Day 3 | Logout, TRIED to do Cloudinary  | Complete |
+| Day 4 | MVP MET (crud, Heroku) Cloudinary, drop down menu   | Complete |
+| Day 5 |add profile - could not get it to configure user id    | Complete |
+| Day 6 | add styling  | Complete |
 
 # FUTURE FEATURES
 - comments/review
-- sort by location
-- yelp api "dog-friendly"
+- sort by location / search
+- API: adopt a pet and yelp api "dog-friendly"
 - Blog/Question/answer forum
-- Be able to offer walking service
+- Be able to offer walking service/meet ups 
 - Social Media API insta
 
 

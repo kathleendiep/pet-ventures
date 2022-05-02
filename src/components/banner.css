@@ -83,7 +83,7 @@
       var(--base) 25%,
       var(--complimentary2)
     );
-    margin: auto;
+    margin: auto; 
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     -moz-background-clip: text;

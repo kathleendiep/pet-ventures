@@ -24,7 +24,8 @@ const NavBar = (props) => {
     <>
       <div className="nav-header">
         <div className="nav-brand">
-          <img src="/img/snacks-world-logo.png"></img>
+          <h1 className="logo"> Pet-Ventures </h1>
+          {/* <img src="/img/snacks-world-logo.png"></img> */}
         </div>
         <i className="fa fa-bars fa-3x"></i>
         <div className="header-links">

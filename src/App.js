@@ -19,13 +19,11 @@ import NavBar from './components/navBar/navBar';
 import Footer from './components/footer/footer';
 import PetContainer from './components/petContainer/petContainer';
 import NewPet from './components/petContainer/newPet';
-
 function App() {
   // const token = '' // todo: tremove
   // const setToken = (token) => {
   //   localStorage.setItem('mytoken', token)
   // }
-
   const [token, setToken] = useCookies(['mytoken'])
   const [loggedIn, setLoggedIn] = useState(false)
   const [loggedOut, setLoggedOut] = useState(true)
