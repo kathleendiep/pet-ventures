@@ -6,7 +6,6 @@ import 'animate.css';
 import PetContainer from '../petContainer/petContainer';
 import Login from '../login/login';
 import ProfilesContainer from '../profilesContainer/profilesContainer';
-
 const HomePage = () => {
   const [inputText, setInputText] = useState("");
   let inputHandler = (e) => {

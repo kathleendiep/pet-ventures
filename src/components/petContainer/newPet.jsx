@@ -29,11 +29,9 @@ const NewPet = (props) => {
         state: "",
         img: "",
     })
-
     const fileSelect = useRef(null);
     const [image, setImage] = useState();
     const [progress, setProgress] = useState(0);
-  
     async function handleImageUpload() {
       if (fileSelect) {
         fileSelect.current.click();
@@ -198,9 +196,9 @@ const NewPet = (props) => {
                             <Form.Label>Picture:</Form.Label>
                             <Form.Control onChange={(e) => handleFiles(e.target.files)} type="file" name="img" value={newPet.img} />
                         </Form.Group>
-                        <input type="file" onChange={(e) => handleFiles(e.target.files)} name="img" defaultValue={newPet.img}></input>
+                        {/* <input type="file" onChange={(e) => handleFiles(e.target.files)} name="img" defaultValue={newPet.img}></input> */}
                         <Button type="submit" onClick={handleClose}>
-                            Add
+                            Add 
                         </Button>
                     </Form>
                 </Modal.Body>
@@ -208,5 +206,4 @@ const NewPet = (props) => {
         </>
     );
 }
-
 export default NewPet;

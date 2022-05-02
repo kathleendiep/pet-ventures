@@ -54,7 +54,7 @@ const ProfilesContainer = (props) => {
 
     return (
         <>
-        <div class="home"> 
+        <div className="home"> 
         <div>
             <span className="pet-title">Check out some articles</span>
         </div>

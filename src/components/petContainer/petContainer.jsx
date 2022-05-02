@@ -79,7 +79,7 @@ const PetContainer = (props) => {
 
     return (
         <>
-        <div class="home"> 
+        <div className="home"> 
         <div>
             <span className="pet-title">Check out some pets!</span>
         </div>
@@ -118,7 +118,7 @@ customRightArrow={<CustomRightArrow />}
                         pet={pet}
                         pets={pets}
                         deletePet={deletePet}
-                        className= "inner"
+                        className="inner"
                     >
                  
                     </SinglePet>

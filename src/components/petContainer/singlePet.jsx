@@ -69,13 +69,13 @@ const SinglePet = (props) => {
 
   return (
       <div className="single-item-component">
-        <div class="cards">
-          <div class="card">
-            <div class="img">
+        <div className="cards">
+          <div className="card">
+            <div className="img">
               <img className="image-voyager" src={props.pet.img}></img>
             </div>
-            <div class="card__body">
-              <div class="card__color-picker">
+            <div className="card__body">
+              <div className="card__color-picker">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -83,12 +83,12 @@ const SinglePet = (props) => {
               <h2 className="card-title">{props.pet.name}</h2>
               {/* <h3 className="card-jobtitle">{props.pet.category}</h3> */}
               <li className="card-jobtitle">{props.pet.breed}</li>
-              <div class="card-city"><i className="from">from</i> {props.pet.city}, {props.pet.state}</div>
-              <div class="card-content">
-                <div class="card-subtitle">ABOUT</div>
-                <p class="card-desc">{props.pet.info}</p>
+              <div className="card-city"><i className="from">from</i> {props.pet.city}, {props.pet.state}</div>
+              <div className="card-content">
+                <div className="card-subtitle">ABOUT</div>
+                <p className="card-desc">{props.pet.info}</p>
               </div>
-              <div class="card-buttons">
+              <div className="card-buttons">
                 {/* ---------------- delete button ---------------- */}
                 <ConfirmModal
                   handleCloseDelete={handleCloseDelete}

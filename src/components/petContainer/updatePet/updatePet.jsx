@@ -19,8 +19,8 @@ const UpdatePet = (props) => {
             {/* this will make the showing set from true to false and close out the div */}
             {/* create the onSubmit form */}
             <Form  onSubmit={(e) => { e.preventDefault(); props.updatingPet(props.updatePet.id) }}>
-          <div class="card">
-            <div class="img">
+          <div className="card">
+            <div className="img">
               <img className="image-voyager" src={props.updatePet.img}></img>
             </div>
             </div>

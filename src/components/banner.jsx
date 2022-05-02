@@ -207,17 +207,17 @@ const Banner = () => {
 
     return (
         <>
-            <canvas class="orb-canvas"></canvas>
+            <canvas className="orb-canvas"></canvas>
             <div className="container container-fluid">
-                <div class="overlay">
+                <div className="overlay">
                     <div className="row align-items-center">
                         <div className="col-lg-6">
                             <div className="banner-text">
-                                <h1 class="overlay__title">
+                                <h1 className="overlay__title">
                                     Woof Woof
-                                    <span class="text-gradient">      pet owners</span>
+                                    <span className="text-gradient">pet owners</span>
                                 </h1>
-                                <p class="overlay__description">
+                                <p className="overlay__description">
                                     find and connect to furiends
                                     {/* <strong>We're gonna talk accessibility, too.</strong> */}
                                 </p>
