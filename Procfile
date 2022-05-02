@@ -1,1 +1,0 @@
-web: gunicorn pet_ventures-react.wsgi
