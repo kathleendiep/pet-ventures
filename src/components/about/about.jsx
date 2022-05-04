@@ -14,8 +14,7 @@ const About = () => {
                 </section>
             </div>
                     <div class="column text">
-                        <p>When you travel, do you want to be able to know what unique snacks are available in each region?</p>
-                        <p>With SnacksWorld, add your favorite snacks by City and Country! </p>
+                    <p>Connect with other dog lovers</p>
                     </div>
                     <div class="column text">
                         <h1>Check out the repo here</h1>
