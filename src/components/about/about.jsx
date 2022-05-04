@@ -7,10 +7,9 @@ const About = () => {
     return (
         <div>
             <div className="nav-bar">
-                <NavBar></NavBar>
                 <section class="col-12">
                     <div class="column text">
-                        <h1>About Snack World</h1>
+                        <h1>About PetVentures</h1>
                     </div>
                 </section>
             </div>
