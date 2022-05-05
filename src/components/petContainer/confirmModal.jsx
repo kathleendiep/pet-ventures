@@ -24,7 +24,6 @@ const ConfirmModal = (props) => {
             <div className="col">
                   <Button onClick={() => props.deletePet(props.pet.id)} className="btn btn-danger">Delete</Button>
             </div>
-
           </Modal.Footer>
         </Modal>
       </>
