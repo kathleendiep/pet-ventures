@@ -16,14 +16,14 @@ Application to be built on:
 ![alt tag](https://user-images.githubusercontent.com/53194460/167745205-4d08e559-3942-4d48-bb01-c5c79dea8a5a.png)
 
 
-#### Functionality:
+## Functionality:
 - Search based on type of dog 
 - Adopt-a-pet API
 - User Login 
 - User Profile
 
 
-#### Models 
+## Models 
 ##### Post
 ```
 class Post(models.Model):
@@ -37,7 +37,7 @@ class Post(models.Model):
 ```
     optional:
     user_id 
-#### User
+
 
 ## Project Schedule
 | Day   | Deliverable                          | Status     |
@@ -61,6 +61,5 @@ class Post(models.Model):
 
 ## Let's connect!:
 [ my portfolio ](www.kathleendiep.com)
-[ linkedin ](https://www.linkedin.com/in/kathleen-diep/)
 
-
+**LinkedIn:** https://www.linkedin.com/in/kathleen-diep/ 
