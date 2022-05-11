@@ -1,18 +1,20 @@
 # Pet-Ventures 🦴🐶🐾
 ## Description
-my app PetDash, social media app that will connect pet lovers through setting up dog/human profiles, services, and blog posts 
+my app PetVentures, social media app that will connect pet lovers through setting up dog/human profiles, services, and blog posts 
 
 
 ## Check it out! 
-[link will go here ](https://example.com)
+[link will go here ](https://petventures.herokuapp.com/)
 
-## MVP:
-- 
+## How It's Made:
 #### Tech Stack: 
 Application to be built on: 
 - **React - frontend** 
 - **Django - backend** 
 - Converting from JS to typescript 
+## Preview  
+![alt tag](https://user-images.githubusercontent.com/53194460/167745205-4d08e559-3942-4d48-bb01-c5c79dea8a5a.png)
+
 
 #### Functionality:
 - Search based on type of dog 
@@ -47,7 +49,8 @@ class Post(models.Model):
 | Day 4 | MVP MET (crud, Heroku) Cloudinary, drop down menu   | Complete |
 | Day 5 |add profile - could not get it to configure user id    | Complete |
 | Day 6 | add styling  | Complete |
-
+## Optimizations
+## Lessons Learned:
 # FUTURE FEATURES
 - comments/review
 - sort by location / search
@@ -56,8 +59,8 @@ class Post(models.Model):
 - Be able to offer walking service/meet ups 
 - Social Media API insta
 
-
-
-
+## Let's connect!:
+[ my portfolio ](www.kathleendiep.com)
+[ linkedin ](https://www.linkedin.com/in/kathleen-diep/)
 
 
