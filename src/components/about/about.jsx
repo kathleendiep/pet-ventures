@@ -1,8 +1,9 @@
-import React from 'react'
 import './about.css'
 import NavBar from '../navBar/navBar'
 import Footer from '../footer/footer'
 import '../footer/footer.scss'
+
+
 const About = () => {
     return (
         <div>

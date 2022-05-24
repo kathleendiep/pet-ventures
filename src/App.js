@@ -1,4 +1,3 @@
-import React from 'react'
 import { useState } from 'react'
 import './App.css';
 import {
@@ -19,6 +18,7 @@ import NavBar from './components/navBar/navBar';
 import Footer from './components/footer/footer';
 import PetContainer from './components/petContainer/petContainer';
 import NewPet from './components/petContainer/newPet';
+
 function App() {
   // const token = '' // todo: tremove
   // const setToken = (token) => {
