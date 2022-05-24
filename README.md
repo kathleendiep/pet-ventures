@@ -4,13 +4,12 @@ my app PetVentures, social media app that will connect pet lovers through settin
 
 
 ## Check it out! 
-[link will go here ](https://petventures.herokuapp.com/)
+[click here! ](https://petventures.herokuapp.com/)
 
-## How It's Made:
-#### Tech Stack: 
-Application to be built on: 
-- **React - frontend** 
-- **Django - backend** 
+## Tech Stack
+Application is built on: 
+- **React**  - frontend  
+- **Django**  - backend
 - Converting from JS to typescript 
 ## Preview  
 ![alt tag](https://user-images.githubusercontent.com/53194460/167745205-4d08e559-3942-4d48-bb01-c5c79dea8a5a.png)

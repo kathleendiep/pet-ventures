@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import { Navigate } from 'react-router-dom'
 
 const NewPet = (props) => {
+
     let navigate = useNavigate()
     const [show, setShow] = useState(false);
     const handleClose = () => {
