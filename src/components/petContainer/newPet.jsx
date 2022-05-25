@@ -136,12 +136,12 @@ const NewPet = (props) => {
     
     return (
         <>
-            <Button variant="primary" onClick={handleShow} className="custom-btn">
+            <Button variant="primary" onClick={handleShow} className="button-view text-link">
                 Create
             </Button>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Add new pet!</Modal.Title>
+                    <Modal.Title> <span className="text-gradient">Add a new pet</span></Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     {/* this will make the showing set from true to false and close out the div */}

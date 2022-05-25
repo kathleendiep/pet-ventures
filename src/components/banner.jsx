@@ -209,8 +209,8 @@ const Banner = () => {
             <canvas className="orb-canvas"></canvas>
             <div className="container container-fluid">
                 <div className="overlay">
-                    <div className="row align-items-center">
-                        <div className="col-lg-6">
+                    <div className="row">
+                        <div className="col-lg-6 banner-text-container">
                             <div className="banner-text">
                                 <h1 className="overlay__title">
                                     Woof Woof

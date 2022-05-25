@@ -12,7 +12,9 @@
     background: var(--bg-gradient);
     opacity: .90;
 }
-
+.modal-header { 
+    width: 100%;
+}
 .button-modal {
     width: 10vw;
     color: white;
