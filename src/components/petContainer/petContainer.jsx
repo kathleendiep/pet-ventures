@@ -4,10 +4,10 @@ import NewPet from "./newPet";
 import SinglePet from "./singlePet";
 import { Navigate } from 'react-router-dom'
 import Carousel from "react-multi-carousel";
-import CustomRightArrow from './customRightArrow.jsx' 
+import CustomRightArrow from './customRightArrow.jsx'
 import "react-multi-carousel/lib/styles.css";
 import './pet.scss';
-import {useCookies} from 'react-cookie';
+import { useCookies } from 'react-cookie';
 
 const PetContainer = (props) => {
     const [pets, setPets] = useState([]);
@@ -22,7 +22,7 @@ const PetContainer = (props) => {
                 // 'Authorization':`Token ${token}` 
             }
         })
-    
+
         const parsedResponse = await apiResponse.json();
         // make sure it shows: {success:true,data: object}
         console.log(parsedResponse)
@@ -79,12 +79,12 @@ const PetContainer = (props) => {
 
     return (
         <>
-        <div className="home"> 
-        <div>
-            <span className="pet-title">Check out some pets!</span>
-        </div>
-        <div className="underline"></div>
-        </div>
+            <div className="home">
+                <h1 className="overlay__title">
+                    <span className="text-gradient">Check out some pets!</span>
+                </h1>
+                <div className="underline"></div>
+            </div>
             <span>
                 <NewPet
                     createNewPet={createNewPet}
@@ -110,8 +110,8 @@ dotListClass="custom-dot-list-style"
 itemClass="carousel-item-padding-40-px"
 customRightArrow={<CustomRightArrow />} 
 > */}
-      <div className="outer-container">
-     
+            <div className="outer-container">
+
                 {pets.map((pet) => {
                     return <SinglePet
                         key={pet.id}
@@ -120,11 +120,11 @@ customRightArrow={<CustomRightArrow />}
                         deletePet={deletePet}
                         className="inner"
                     >
-                 
+
                     </SinglePet>
                 })}
 
-         </div> 
+            </div>
 
         </>
     );
