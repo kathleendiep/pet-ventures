@@ -201,9 +201,6 @@ const Banner = () => {
 
         orbs.push(orb);
     }
-
-
-
     return (
         <>
             <canvas className="orb-canvas"></canvas>
